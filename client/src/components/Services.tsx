@@ -10,39 +10,41 @@ export default function Services() {
   return (
     <section id="services" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl font-bold text-foreground">Our Premium Services</h2>
-          <div className="w-24 h-1 bg-secondary mx-auto"></div>
-          <p className="text-muted-foreground">Comprehensive global trade solutions tailored to simplify your sourcing journey from India.</p>
+        <div className="flex items-center justify-between mb-16">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="text-4xl font-bold text-foreground">Our Services</h2>
+            <div className="w-24 h-1 bg-secondary"></div>
+            <p className="text-muted-foreground text-lg">Explore →</p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.services.map((service, idx) => (
-            <div key={idx} className="group relative rounded-3xl overflow-hidden bg-white shadow-xl hover:-translate-y-3 transition-all duration-500 border border-border/40">
+            <div key={idx} className="group relative rounded-[2rem] overflow-hidden bg-white shadow-xl hover:-translate-y-3 transition-all duration-500 border border-border/40">
               <div className="h-72 overflow-hidden relative">
                 <img 
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                   <h3 className="text-2xl font-bold text-white mb-2 transform group-hover:-translate-y-2 transition-transform duration-500">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-6 left-8 right-8">
+                   <h3 className="text-3xl font-bold text-white mb-2 transform group-hover:-translate-y-2 transition-transform duration-500">
                      {service.title}
                    </h3>
                 </div>
               </div>
-              <div className="p-8 space-y-6">
-                <p className="text-muted-foreground text-base leading-relaxed h-14 overflow-hidden line-clamp-2">
+              <div className="p-10 space-y-6">
+                <p className="text-muted-foreground text-lg leading-relaxed h-20 overflow-hidden line-clamp-3">
                   {service.description}
                 </p>
                 <div className="pt-2">
                   <Button 
-                    variant="outline" 
-                    className="w-full group/btn border-primary text-primary hover:bg-primary hover:text-white rounded-xl h-12 text-base font-bold transition-all"
+                    variant="link" 
+                    className="group/btn p-0 text-primary hover:text-secondary text-lg font-bold transition-all h-auto"
                     onClick={() => setSelectedService(service)}
                   >
-                    View Service Details <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    View More
                   </Button>
                 </div>
               </div>
@@ -52,33 +54,33 @@ export default function Services() {
 
         {/* Modal for Service Details */}
         <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
-          <DialogContent className="max-w-3xl">
-            <DialogHeader>
-              <DialogTitle className="text-3xl font-bold text-primary">{selectedService?.title}</DialogTitle>
-              <DialogDescription className="text-lg mt-2">
-                Detailed information about our {selectedService?.title} expertise.
-              </DialogDescription>
+          <DialogContent className="max-w-4xl rounded-[2rem]">
+            <DialogHeader className="border-b pb-6">
+              <DialogTitle className="text-4xl font-black text-primary uppercase tracking-tighter">{selectedService?.title}</DialogTitle>
             </DialogHeader>
-            <div className="mt-6 flex flex-col md:flex-row gap-8">
-              <div className="md:w-1/2">
-                <img src={selectedService?.image} alt={selectedService?.title} className="w-full h-64 object-cover rounded-2xl shadow-lg" />
+            <div className="mt-8 flex flex-col md:flex-row gap-10">
+              <div className="md:w-5/12">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
+                  <img src={selectedService?.image} alt={selectedService?.title} className="w-full h-80 object-cover" />
+                  <div className="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+                </div>
               </div>
-              <div className="md:w-1/2 space-y-4">
-                <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
+              <div className="md:w-7/12 space-y-6 flex flex-col justify-center">
+                <p className="text-muted-foreground text-lg whitespace-pre-line leading-relaxed">
                   {selectedService?.fullContent}
                 </p>
-                <div className="space-y-2">
-                   <div className="flex items-center gap-2 text-foreground font-bold">
+                <div className="grid grid-cols-2 gap-4">
+                   <div className="flex items-center gap-2 text-foreground font-bold bg-muted p-3 rounded-2xl">
                      <CheckCircle2 className="w-5 h-5 text-green-500" />
                      Verified Process
                    </div>
-                   <div className="flex items-center gap-2 text-foreground font-bold">
+                   <div className="flex items-center gap-2 text-foreground font-bold bg-muted p-3 rounded-2xl">
                      <CheckCircle2 className="w-5 h-5 text-green-500" />
-                     24/7 Expert Support
+                     24/7 Support
                    </div>
                 </div>
-                <Button className="w-full mt-4 bg-secondary hover:bg-secondary/90 text-white h-12 rounded-xl text-lg font-bold">
-                  Enquire for this Service
+                <Button className="w-full bg-secondary hover:bg-secondary/90 text-white h-14 rounded-[1.5rem] text-xl font-black uppercase tracking-widest shadow-lg hover:shadow-secondary/20 transition-all">
+                  Get Started Now
                 </Button>
               </div>
             </div>

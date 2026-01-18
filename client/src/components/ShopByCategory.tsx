@@ -15,59 +15,57 @@ export default function ShopByCategory() {
   return (
     <section id="products" className="py-20 bg-white">
       <div className="container mx-auto px-4">
+        {/* Category Grid - Matching Busyexim Circle Layout */}
         <div className="flex items-center justify-between mb-12">
           <div>
             <h2 className="text-3xl font-bold text-foreground">Shop by Category</h2>
             <div className="w-20 h-1 bg-secondary mt-2"></div>
           </div>
-          <Button variant="link" className="text-primary font-bold">View All Categories</Button>
+          <Button variant="link" className="text-primary font-bold">View All</Button>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
           {products.categories.map((cat) => (
-            <Card 
+            <div 
               key={cat.id} 
-              className="group border-none shadow-none text-center cursor-pointer bg-transparent"
+              className="group text-center cursor-pointer"
               onClick={() => setSelectedCategory(cat.id)}
             >
-              <CardContent className="p-0 space-y-4">
-                <div className="relative aspect-square rounded-full overflow-hidden bg-muted group-hover:ring-8 ring-secondary/10 transition-all duration-500 shadow-lg">
-                  <img 
-                    src={cat.image} 
-                    alt={cat.label} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white text-primary text-xs font-bold px-3 py-1 rounded-full shadow-sm">Explore Products</span>
-                  </div>
-                </div>
-                <div className="space-y-1">
-                   <h3 className="text-lg font-bold text-foreground group-hover:text-secondary transition-colors">{cat.label}</h3>
-                   <p className="text-xs text-muted-foreground font-medium uppercase tracking-tighter">{cat.count}</p>
-                </div>
-              </CardContent>
-            </Card>
+              <div className="relative aspect-square rounded-full overflow-hidden bg-muted group-hover:ring-8 ring-secondary/10 transition-all duration-500 shadow-lg mx-auto max-w-[200px]">
+                <img 
+                  src={cat.image} 
+                  alt={cat.label} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <div className="mt-6">
+                <h3 className="text-lg font-bold text-foreground group-hover:text-secondary transition-colors">{cat.label}</h3>
+                <p className="text-xs text-muted-foreground font-medium uppercase mt-1">{cat.count}</p>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Modal for Category Products */}
         <Dialog open={!!selectedCategory} onOpenChange={() => setSelectedCategory(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold flex items-center justify-between">
-                {products.categories.find(c => c.id === selectedCategory)?.label} Products
+              <DialogTitle className="text-2xl font-bold border-b pb-4">
+                {products.categories.find(c => c.id === selectedCategory)?.label}
               </DialogTitle>
             </DialogHeader>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
               {activeProducts?.map((item, idx) => (
-                <div key={idx} className="flex gap-4 p-4 border rounded-xl hover:shadow-md transition-shadow">
-                  <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-lg" />
-                  <div className="flex flex-col justify-between">
-                    <div>
-                      <h4 className="font-bold text-lg">{item.name}</h4>
-                      <p className="text-secondary font-black">{item.price}</p>
-                    </div>
-                    <Button size="sm" className="w-fit">Get Best Quote</Button>
+                <div key={idx} className="group bg-white rounded-2xl overflow-hidden border border-border/50 hover:shadow-xl transition-all duration-300">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-foreground mb-1 line-clamp-1">{item.name}</h4>
+                    <p className="text-secondary font-black mb-3">{item.price}</p>
+                    <Button size="sm" className="w-full rounded-xl bg-primary hover:bg-primary/90 text-white font-bold">
+                      Get Best Quote
+                    </Button>
                   </div>
                 </div>
               ))}
@@ -75,43 +73,46 @@ export default function ShopByCategory() {
           </DialogContent>
         </Dialog>
 
-        {/* Featured Products / Trending Section */}
-        <div className="mt-24">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground">Trending Now</h2>
-              <div className="w-20 h-1 bg-secondary mt-2"></div>
+        {/* Dynamic Product Sections - Same as Busyexim Home Page */}
+        {products.categories.map((cat) => (
+          <div key={`section-${cat.id}`} className="mt-24 border-t pt-16">
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h2 className="text-3xl font-bold text-foreground">{cat.label}</h2>
+                <div className="w-20 h-1 bg-secondary mt-2"></div>
+              </div>
+              <Button variant="link" className="text-primary font-bold">View All</Button>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {(products.categoryProducts[cat.id as keyof typeof products.categoryProducts] || []).slice(0, 4).map((item, idx) => (
+                <div key={`${cat.id}-${idx}`} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3">
+                      <Button size="icon" variant="secondary" className="rounded-full">
+                        <Eye className="w-5 h-5" />
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="font-bold text-foreground text-lg mb-1 group-hover:text-primary transition-colors line-clamp-1">{item.name}</h4>
+                    <div className="flex items-center justify-between mt-4">
+                      <span className="text-secondary font-black text-xl">{item.price}</span>
+                      <Button variant="ghost" size="sm" className="text-primary font-bold p-0 h-auto hover:bg-transparent">
+                        Read More
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.trending.map((item) => (
-              <div key={item.id} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-border/50">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3">
-                    <Button size="icon" variant="secondary" className="rounded-full">
-                      <Eye className="w-5 h-5" />
-                    </Button>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="font-bold text-foreground text-lg mb-1 group-hover:text-primary transition-colors line-clamp-1">{item.name}</h4>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="text-secondary font-black text-xl">{item.price}</span>
-                    <Button variant="ghost" size="sm" className="text-primary font-bold p-0 h-auto hover:bg-transparent">
-                      Inquiry Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
