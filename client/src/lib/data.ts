@@ -4,28 +4,85 @@ import chilliImg from '@assets/stock_images/red_chilli_powder_in_bb2e7907.jpg';
 import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 
+// Updated product category images based on latest stock fetches
+import foodVegImg from '@assets/stock_images/fresh_green_vegetab_4f60e980.jpg';
+import handicraftsImg from '@assets/stock_images/indian_traditional__76a8d9b2.jpg';
+import machineryImg from '@assets/stock_images/industrial_machiner_e927c3f4.jpg';
+import textilesImg from '@assets/stock_images/luxurious_indian_si_9d8e41a3.jpg';
+
 export const products = {
   categories: [
-    { id: "foods", label: "Foods & Vegetables", icon: "Apple" },
-    { id: "handicrafts", label: "Handicrafts", icon: "Palette" },
-    { id: "machinery", label: "Machinery", icon: "Settings" },
-    { id: "textiles", label: "Textiles", icon: "Shirt" }
+    { id: "foods", label: "Foods & Vegetables", image: foodVegImg, count: "74 Products" },
+    { id: "handicrafts", label: "Handicrafts", image: handicraftsImg, count: "97 Products" },
+    { id: "machinery", label: "Machinery", image: machineryImg, count: "6 Products" },
+    { id: "textiles", label: "Textiles", image: textilesImg, count: "79 Products" }
   ],
   services: [
     {
       title: "CHA Services",
       description: "Smooth customs clearance with expert CHA (Custom House Agent) services.",
-      image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg"
+      image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg",
+      link: "#"
     },
     {
       title: "Logistics",
       description: "Efficient and reliable logistics, delivering your goods on time, every time.",
-      image: "https://busyexim.com/wp-content/uploads/2024/09/16615.jpg"
+      image: "https://busyexim.com/wp-content/uploads/2024/09/16615.jpg",
+      link: "#"
     },
     {
       title: "Documentation",
       description: "Accurate and hassle-free documentation for seamless trade transactions.",
-      image: "https://busyexim.com/wp-content/uploads/2024/09/16051.jpg"
+      image: "https://busyexim.com/wp-content/uploads/2024/09/16051.jpg",
+      link: "#"
+    },
+    {
+      title: "Sourcing India",
+      description: "Discover the best of Indian craftsmanship, sourced directly for your business.",
+      image: "https://busyexim.com/wp-content/uploads/2024/09/untitled-24-66f60f9a5977a.webp",
+      link: "#"
+    },
+    {
+      title: "Sourcing Abroad",
+      description: "Expand your horizons with global sourcing solutions tailored to your needs.",
+      image: "https://busyexim.com/wp-content/uploads/2024/09/2150769942.jpg",
+      link: "#"
+    },
+    {
+      title: "Export Education",
+      description: "Master the art of global trade with our expert-led courses.",
+      image: "https://busyexim.com/wp-content/uploads/2024/09/2149178634.jpg",
+      link: "#"
+    }
+  ],
+  trending: [
+    {
+      id: "t1",
+      name: "Senna Leaves",
+      category: "Foods",
+      image: "https://busyexim.com/wp-content/uploads/2025/02/20241022_171934-scaled-1-430x320.jpg",
+      price: "Enquire"
+    },
+    {
+      id: "t2",
+      name: "Handmade Pottery",
+      category: "Handicrafts",
+      image: handicraftsImg,
+      price: "Enquire"
+    },
+    {
+      id: "t3",
+      name: "Industrial Valves",
+      category: "Machinery",
+      image: machineryImg,
+      price: "Enquire"
+    },
+    {
+      id: "t4",
+      name: "Silk Sarees",
+      category: "Textiles",
+      image: textilesImg,
+      price: "Enquire"
     }
   ],
   items: [

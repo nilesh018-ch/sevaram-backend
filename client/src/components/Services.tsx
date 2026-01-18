@@ -4,35 +4,39 @@ import { Button } from "@/components/ui/button";
 
 export default function Services() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="services" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl font-bold text-foreground">Our Services</h2>
-          <Button variant="ghost" className="text-primary font-bold">
-            Explore All <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <h2 className="text-4xl font-bold text-foreground">Our Premium Services</h2>
+          <div className="w-24 h-1 bg-secondary mx-auto"></div>
+          <p className="text-muted-foreground">Comprehensive global trade solutions tailored to simplify your sourcing journey from India.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {products.services.map((service, idx) => (
-            <div key={idx} className="group relative rounded-2xl overflow-hidden bg-white shadow-lg hover:-translate-y-2 transition-all duration-300">
-              <div className="h-64 overflow-hidden">
+            <div key={idx} className="group relative rounded-3xl overflow-hidden bg-white shadow-xl hover:-translate-y-3 transition-all duration-500 border border-border/40">
+              <div className="h-72 overflow-hidden relative">
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                   <h3 className="text-2xl font-bold text-white mb-2 transform group-hover:-translate-y-2 transition-transform duration-500">
+                     {service.title}
+                   </h3>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-secondary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
+              <div className="p-8 space-y-6">
+                <p className="text-muted-foreground text-base leading-relaxed h-14 overflow-hidden line-clamp-2">
                   {service.description}
                 </p>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                  View More
-                </Button>
+                <div className="pt-2">
+                  <Button variant="outline" className="w-full group/btn border-primary text-primary hover:bg-primary hover:text-white rounded-xl h-12 text-base font-bold transition-all">
+                    View Service Details <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                  </Button>
+                </div>
               </div>
             </div>
           ))}
