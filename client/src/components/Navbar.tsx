@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const logoUrl = "https://sevarameximserve.com/wp-content/uploads/2025/10/cropped-3D-1.jpg";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -22,7 +23,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4 flex justify-between items-center text-xs">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Phone className="w-3 h-3 text-secondary" /> +91 98765 43210</span>
-            <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> info@busyexim.com</span>
+            <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> info@sevarameximserve.com</span>
           </div>
           <div className="flex items-center gap-4">
             <Facebook className="w-3 h-3 hover:text-white cursor-pointer" />
@@ -36,13 +37,16 @@ export default function Navbar() {
       {/* Main Nav */}
       <nav className={cn(
         "transition-all duration-300 border-b",
-        isScrolled ? "bg-white py-3 shadow-lg border-border" : "bg-transparent py-5 border-white/10"
+        isScrolled ? "bg-white py-2 shadow-lg border-border" : "bg-transparent py-4 border-white/10"
       )}>
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <div className="text-2xl font-black tracking-tighter">
-              <span className={cn(isScrolled ? "text-primary" : "text-white")}>BUSY</span>
-              <span className="text-secondary">EXIM</span>
+            <div className="flex items-center gap-2">
+              <img src={logoUrl} alt="Sevaram Exim" className="h-12 w-auto object-contain rounded" />
+              <div className="flex flex-col">
+                <span className={cn("text-xl font-black leading-none", isScrolled ? "text-primary" : "text-white")}>SEVARAM</span>
+                <span className="text-secondary text-sm font-bold leading-none tracking-widest">EXIM SERVE</span>
+              </div>
             </div>
             
             <div className={cn(

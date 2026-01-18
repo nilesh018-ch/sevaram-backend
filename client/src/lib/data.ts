@@ -50,5 +50,23 @@ export const products = {
       image: varietyHero,
       price: "Enquire"
     }
+  ],
+  counters: [
+    { label: "Suppliers", count: "5000+" },
+    { label: "Products", count: "10000+" },
+    { label: "Countries", count: "50+" },
+    { label: "Years Experience", count: "15+" }
+  ],
+  testimonials: [
+    {
+      name: "Ahmed Al-Farsi",
+      country: "UAE",
+      text: "The best sourcing partner from India. Documentation was perfect."
+    },
+    {
+      name: "John Smith",
+      country: "USA",
+      text: "Reliable logistics and high-quality spices. Highly recommended."
+    }
   ]
 };
