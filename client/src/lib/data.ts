@@ -4,11 +4,11 @@ import chilliImg from '@assets/stock_images/red_chilli_powder_in_bb2e7907.jpg';
 import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 
-// Updated product category images based on latest stock fetches
-import foodVegImg from '@assets/stock_images/fresh_green_vegetab_4f60e980.jpg';
-import handicraftsImg from '@assets/stock_images/indian_traditional__76a8d9b2.jpg';
-import machineryImg from '@assets/stock_images/industrial_machiner_e927c3f4.jpg';
-import textilesImg from '@assets/stock_images/luxurious_indian_si_9d8e41a3.jpg';
+// Updated correct filenames from the environment
+import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
+import handicraftsImg from '@assets/stock_images/indian_traditional_h_2a7c17d5.jpg';
+import machineryImg from '@assets/stock_images/industrial_machinery_8bcaf428.jpg';
+import textilesImg from '@assets/stock_images/luxurious_indian_sil_d46d7a81.jpg';
 
 export const products = {
   categories: [
