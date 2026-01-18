@@ -1,65 +1,74 @@
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from '@assets/stock_images/variety_of_colorful__0056cde6.jpg';
+import { ArrowRight, Search } from "lucide-react";
 
 export default function Hero() {
-  const scrollToProducts = () => {
-    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Indian Spices Market" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60 md:bg-black/50" /> 
-        {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+    <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-[#0a192f]">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-[120px] translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      <div className="container relative z-10 px-4 text-center text-white space-y-8 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-        <div className="space-y-4">
-          <span className="inline-block px-4 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-sm font-medium tracking-wider uppercase text-saffron-100">
-            Exporting Tradition Worldwide
-          </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight">
-            Indian Masala <br /> Export Hub
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light">
-            Bringing the authentic taste of Indian heritage to your kitchen. We export premium quality spices, pulses, rice, and millets globally.
-          </p>
-        </div>
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="lg:w-1/2 space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-sm">
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              India's Largest B2B Marketplace
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
+              Sourcing Made <span className="text-secondary">Easy</span> for Your Business
+            </h1>
+            <p className="text-xl text-white/70 max-w-xl">
+              Connect with verified Indian suppliers. We handle everything from documentation to global logistics.
+            </p>
+            
+            <div className="relative max-w-md">
+              <input 
+                type="text" 
+                placeholder="Search for products (e.g. Spices, Textiles)" 
+                className="w-full h-14 pl-12 pr-4 rounded-xl bg-white border-none text-foreground focus:ring-2 focus:ring-secondary"
+              />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
+              <Button className="absolute right-2 top-1/2 -translate-y-1/2 bg-secondary hover:bg-secondary/90 text-white">
+                Search
+              </Button>
+            </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <Button 
-            size="lg" 
-            className="w-full sm:w-auto text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white rounded-full transition-transform hover:scale-105"
-            onClick={scrollToProducts}
-          >
-            View Products
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="w-full sm:w-auto text-lg h-14 px-8 border-white text-primary hover:bg-white hover:text-black rounded-full transition-all"
-            onClick={scrollToContact}
-          >
-            Contact Us <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+            <div className="flex items-center gap-6 pt-4">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">5k+</div>
+                <div className="text-sm text-white/50">Verified Suppliers</div>
+              </div>
+              <div className="h-10 w-px bg-white/10"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white">50+</div>
+                <div className="text-sm text-white/50">Countries Served</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:w-1/2 relative animate-in fade-in slide-in-from-right-8 duration-700 delay-200">
+             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                <img 
+                  src="https://busyexim.com/wp-content/uploads/2025/02/Indias-Largest-B2B-Marketplace-4.png" 
+                  alt="Marketplace Preview" 
+                  className="w-full h-auto"
+                />
+             </div>
+             {/* Floating badge */}
+             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-foreground">Fast Delivery</div>
+                  <div className="text-xs text-muted-foreground">Across 50+ Ports</div>
+                </div>
+             </div>
+          </div>
         </div>
-      </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block text-white/70">
-        <span className="text-sm tracking-widest uppercase">Scroll Down</span>
       </div>
     </section>
   );

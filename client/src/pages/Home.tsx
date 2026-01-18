@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Products from "@/components/Products";
-import About from "@/components/About";
+import Features from "@/components/Features";
+import Services from "@/components/Services";
+import ShopByCategory from "@/components/ShopByCategory";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -12,8 +13,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Products />
-        <About />
+        <Features />
+        <Services />
+        <ShopByCategory />
         <WhyChooseUs />
         <Contact />
       </main>

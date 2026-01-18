@@ -1,88 +1,74 @@
+import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [location, setLocation] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const NavItems = () => (
-    <>
-      <button onClick={() => scrollToSection("home")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">Home</button>
-      <button onClick={() => scrollToSection("products")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">Products</button>
-      <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">About Us</button>
-      <button onClick={() => scrollToSection("contact")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">Contact</button>
-    </>
-  );
-
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-        isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm border-border/50 py-2" : "bg-transparent py-4 text-white"
-      )}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {/* Logo Icon */}
-          <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold font-serif text-xl">
-            I
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Bar */}
+      <div className={cn(
+        "bg-[#0a192f] text-white/70 py-2 border-b border-white/5 transition-all",
+        isScrolled ? "hidden" : "block"
+      )}>
+        <div className="container mx-auto px-4 flex justify-between items-center text-xs">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Phone className="w-3 h-3 text-secondary" /> +91 98765 43210</span>
+            <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> info@busyexim.com</span>
           </div>
-          <span className={cn("text-xl font-bold font-serif tracking-tight", isScrolled ? "text-foreground" : "text-white")}>
-            Indian Masala<span className="text-primary">.</span>
-          </span>
-        </div>
-
-        {/* Desktop Nav */}
-        <div className={cn("hidden md:flex items-center gap-8", isScrolled ? "text-foreground" : "text-white/90")}>
-          <NavItems />
-        </div>
-
-        <div className="hidden md:flex items-center gap-4">
-          <Button 
-            variant={isScrolled ? "default" : "secondary"}
-            className={cn("font-medium", !isScrolled && "bg-white text-primary hover:bg-white/90")}
-            onClick={() => scrollToSection("contact")}
-          >
-            Get Quote
-          </Button>
-        </div>
-
-        {/* Mobile Nav */}
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-foreground" : "text-white")}>
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <div className="flex flex-col gap-6 mt-10">
-                <NavItems />
-                <Button className="w-full" onClick={() => scrollToSection("contact")}>Get Quote</Button>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <div className="flex items-center gap-4">
+            <Facebook className="w-3 h-3 hover:text-white cursor-pointer" />
+            <Instagram className="w-3 h-3 hover:text-white cursor-pointer" />
+            <Twitter className="w-3 h-3 hover:text-white cursor-pointer" />
+            <Linkedin className="w-3 h-3 hover:text-white cursor-pointer" />
+          </div>
         </div>
       </div>
-    </nav>
+
+      {/* Main Nav */}
+      <nav className={cn(
+        "transition-all duration-300 border-b",
+        isScrolled ? "bg-white py-3 shadow-lg border-border" : "bg-transparent py-5 border-white/10"
+      )}>
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <div className="flex items-center gap-12">
+            <div className="text-2xl font-black tracking-tighter">
+              <span className={cn(isScrolled ? "text-primary" : "text-white")}>BUSY</span>
+              <span className="text-secondary">EXIM</span>
+            </div>
+            
+            <div className={cn(
+              "hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider",
+              isScrolled ? "text-foreground" : "text-white"
+            )}>
+              <a href="#" className="hover:text-secondary transition-colors">Home</a>
+              <a href="#about" className="hover:text-secondary transition-colors">About</a>
+              <a href="#services" className="hover:text-secondary transition-colors">Services</a>
+              <a href="#products" className="hover:text-secondary transition-colors">Marketplace</a>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-foreground" : "text-white")}>
+              <Search className="w-5 h-5" />
+            </Button>
+            <Button className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6">
+              BECOME A SUPPLIER
+            </Button>
+            <Button variant="ghost" size="icon" className={cn("lg:hidden", isScrolled ? "text-foreground" : "text-white")}>
+              <Menu className="w-6 h-6" />
+            </Button>
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 }
