@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
-import { Info, ArrowRight, ShieldCheck, Zap, Globe } from "lucide-react";
+import { Info, ArrowLeft, ShieldCheck, Zap, Globe } from "lucide-react";
 
 export default function CategoryDetail() {
   const [, params] = useRoute("/category/:id");
@@ -35,8 +35,20 @@ export default function CategoryDetail() {
       <Navbar />
       
       <main className="pt-20">
+        {/* Back Button Container */}
+        <div className="container mx-auto px-8 lg:px-20 pt-8">
+          <Button 
+            variant="ghost" 
+            className="group flex items-center gap-2 text-[#1a2b4b] hover:text-primary font-bold pl-0"
+            onClick={() => setLocation("/")}
+          >
+            <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+            Back to Home
+          </Button>
+        </div>
+
         {/* Hero Section */}
-        <section className="relative h-[60vh] overflow-hidden">
+        <section className="relative h-[60vh] overflow-hidden mt-6">
           <motion.img 
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}

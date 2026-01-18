@@ -43,7 +43,7 @@ export const products = {
     { 
       id: "millets", 
       label: "Healthy Millets", 
-      image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800", 
+      image: "https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&q=80&w=800", 
       count: "24 Products",
       description: "The superfood of the future. We offer Bajra, Jowar, Ragi, and other traditional Indian millets."
     },
@@ -57,7 +57,7 @@ export const products = {
     { 
       id: "bamboo", 
       label: "Bombu & Habdi Handicrafts", 
-      image: bambooImg, 
+      image: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=800", 
       count: "120+ Products",
       description: "Eco-friendly and sustainable bamboo products handcrafted by skilled artisans."
     },

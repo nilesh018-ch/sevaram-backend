@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
+import { ArrowLeft } from "lucide-react";
 
 export default function ServiceDetail() {
   const [, params] = useRoute("/service/:id");
@@ -35,8 +36,20 @@ export default function ServiceDetail() {
       <Navbar />
       
       <main className="pt-20">
+        {/* Back Button Container */}
+        <div className="container mx-auto px-8 lg:px-20 pt-8">
+          <Button 
+            variant="ghost" 
+            className="group flex items-center gap-2 text-[#1a2b4b] hover:text-primary font-bold pl-0"
+            onClick={() => setLocation("/")}
+          >
+            <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+            Back to Home
+          </Button>
+        </div>
+
         {/* Top Section - Headline & Hero Image */}
-        <section className="bg-white px-8 py-16 lg:px-20">
+        <section className="bg-white px-8 py-16 lg:px-20 mt-6">
           <div className="container mx-auto flex flex-col lg:flex-row gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
