@@ -146,8 +146,8 @@ export const products = {
       { name: "Sona Masoori Rice", price: "Enquire", image: riceImg, description: "Premium quality lightweight non-basmati rice." }
     ],
     bamboo: [
-      { name: "Bamboo Flower Vase", price: "Enquire", image: bambooImg, description: "Elegant decorative bamboo flower vase." },
-      { name: "Bamboo Storage Bin", price: "Enquire", image: bambooImg, description: "Eco-friendly storage solution." }
+      { name: "Bamboo Flower Vase", price: "Enquire", image: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=400", description: "Elegant decorative bamboo flower vase." },
+      { name: "Bamboo Storage Bin", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly storage solution." }
     ],
     textiles: [
       { name: "Pure Silk Saree", price: "Enquire", image: textilesImg, description: "Hand-loomed Banarasi silk saree." }
