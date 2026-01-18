@@ -7,7 +7,7 @@ import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
 import handicraftsImg from '@assets/stock_images/indian_traditional_h_2a7c17d5.jpg';
-import machineryImg from '@assets/stock_images/industrial_machinery_8bcaf428.jpg';
+import bambooImg from '@assets/stock_images/indian_traditional_h_2a7c17d5.jpg'; // Using same as placeholder
 import textilesImg from '@assets/stock_images/luxurious_indian_sil_d46d7a81.jpg';
 
 export const products = {
@@ -27,11 +27,11 @@ export const products = {
       description: "Explore the soul of India through our artisanal handicrafts. From intricate brass work to traditional pottery, each piece tells a story of centuries-old craftsmanship and cultural heritage."
     },
     { 
-      id: "machinery", 
-      label: "Machinery", 
-      image: machineryImg, 
-      count: "6 Products",
-      description: "Reliable and high-performance industrial machinery. We provide precision-engineered components, pumps, and specialized tools that meet international quality standards for manufacturing excellence."
+      id: "bamboo", 
+      label: "Bombu & Habdi Handicrafts", 
+      image: bambooImg, 
+      count: "120+ Products",
+      description: "Eco-friendly and sustainable bamboo products handcrafted by skilled artisans. Our collection ranges from home decor and furniture to kitchenware and fashion accessories, all meeting export quality standards."
     },
     { 
       id: "textiles", 
@@ -165,9 +165,13 @@ export const products = {
       { name: "Artisanal Wooden Decor", price: "Enquire", image: handicraftsImg, description: "Sheesham wood carvings with traditional motifs." },
       { name: "Terracotta Sculpture", price: "Enquire", image: handicraftsImg, description: "Earth-fired clay art from rural artisan clusters." }
     ],
-    machinery: [
-      { name: "Industrial Centrifugal Pump", price: "Enquire", image: machineryImg, description: "High-efficiency pump for heavy-duty industrial fluid handling." },
-      { name: "Precision Gear Set", price: "Enquire", image: machineryImg, description: "Custom-machined steel gears for automotive and manufacturing use." }
+    bamboo: [
+      { name: "Bamboo Flower Vase", price: "Enquire", image: bambooImg, description: "Elegant decorative bamboo flower vase for home decor." },
+      { name: "Bamboo Storage Bin", price: "Enquire", image: bambooImg, description: "Eco-friendly storage solution for organized living." },
+      { name: "Bamboo Serving Tray", price: "Enquire", image: bambooImg, description: "Handcrafted serving tray for kitchen and dining." },
+      { name: "Bamboo Hanging Lamp", price: "Enquire", image: bambooImg, description: "Stylish bamboo lamp for aesthetic interior lighting." },
+      { name: "Bamboo Garden Planter", price: "Enquire", image: bambooImg, description: "Durable and natural planter for outdoor gardening." },
+      { name: "Bamboo Handbag", price: "Enquire", image: bambooImg, description: "Fashionable and eco-friendly bamboo handbag." }
     ],
     textiles: [
       { name: "Pure Silk Saree", price: "Enquire", image: textilesImg, description: "Hand-loomed Banarasi silk saree with gold zari work." },
@@ -192,9 +196,9 @@ export const products = {
     },
     {
       id: "t3",
-      name: "Industrial Valves",
-      category: "Machinery",
-      image: machineryImg,
+      name: "Bamboo Lamps",
+      category: "Bamboo",
+      image: bambooImg,
       price: "Enquire"
     },
     {
@@ -222,5 +226,12 @@ export const products = {
       country: "USA",
       text: "Reliable logistics and high-quality spices. Highly recommended."
     }
+  ],
+  bambooFeatures: [
+    "Custom Design Available",
+    "Bulk Supply Capability",
+    "Eco-Friendly & Sustainable Materials",
+    "Handmade by Skilled Artisans",
+    "Export Quality Packaging"
   ]
 };
