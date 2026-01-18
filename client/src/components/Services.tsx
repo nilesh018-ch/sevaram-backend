@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { products } from "@/lib/data";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 export default function Services() {
+  const [selectedService, setSelectedService] = useState<any>(null);
+
   return (
     <section id="services" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -33,7 +37,11 @@ export default function Services() {
                   {service.description}
                 </p>
                 <div className="pt-2">
-                  <Button variant="outline" className="w-full group/btn border-primary text-primary hover:bg-primary hover:text-white rounded-xl h-12 text-base font-bold transition-all">
+                  <Button 
+                    variant="outline" 
+                    className="w-full group/btn border-primary text-primary hover:bg-primary hover:text-white rounded-xl h-12 text-base font-bold transition-all"
+                    onClick={() => setSelectedService(service)}
+                  >
                     View Service Details <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
                 </div>
@@ -41,6 +49,41 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {/* Modal for Service Details */}
+        <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
+          <DialogContent className="max-w-3xl">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-bold text-primary">{selectedService?.title}</DialogTitle>
+              <DialogDescription className="text-lg mt-2">
+                Detailed information about our {selectedService?.title} expertise.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="mt-6 flex flex-col md:flex-row gap-8">
+              <div className="md:w-1/2">
+                <img src={selectedService?.image} alt={selectedService?.title} className="w-full h-64 object-cover rounded-2xl shadow-lg" />
+              </div>
+              <div className="md:w-1/2 space-y-4">
+                <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
+                  {selectedService?.fullContent}
+                </p>
+                <div className="space-y-2">
+                   <div className="flex items-center gap-2 text-foreground font-bold">
+                     <CheckCircle2 className="w-5 h-5 text-green-500" />
+                     Verified Process
+                   </div>
+                   <div className="flex items-center gap-2 text-foreground font-bold">
+                     <CheckCircle2 className="w-5 h-5 text-green-500" />
+                     24/7 Expert Support
+                   </div>
+                </div>
+                <Button className="w-full mt-4 bg-secondary hover:bg-secondary/90 text-white h-12 rounded-xl text-lg font-bold">
+                  Enquire for this Service
+                </Button>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );

@@ -19,42 +19,70 @@ export const products = {
   ],
   services: [
     {
+      id: "cha",
       title: "CHA Services",
-      description: "Smooth customs clearance with expert CHA (Custom House Agent) services.",
+      description: "Smooth customs clearance with expert CHA (Custom House Agent) services. We handle all documentation, assessment, and examination for your imports and exports.",
+      fullContent: "Our Custom House Agency (CHA) services are designed to simplify the complex world of customs. We provide end-to-end support including: \n\n- Documentation and filing\n- Classification of goods\n- Duty assessment and payment\n- Physical examination of cargo\n- Final clearance and delivery.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg",
-      link: "#"
     },
     {
+      id: "logistics",
       title: "Logistics",
       description: "Efficient and reliable logistics, delivering your goods on time, every time.",
+      fullContent: "We provide global logistics solutions that ensure your cargo reaches its destination safely and on time. Our services include sea freight, air freight, and inland transportation with real-time tracking.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/16615.jpg",
-      link: "#"
     },
     {
+      id: "documentation",
       title: "Documentation",
       description: "Accurate and hassle-free documentation for seamless trade transactions.",
+      fullContent: "Trade documentation is critical. We assist with Bill of Lading, Certificates of Origin, Insurance, and all necessary export-import paperwork to ensure compliance with international regulations.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/16051.jpg",
-      link: "#"
     },
     {
+      id: "sourcing-india",
       title: "Sourcing India",
       description: "Discover the best of Indian craftsmanship, sourced directly for your business.",
+      fullContent: "India offers a wealth of products. We act as your eyes and ears on the ground, finding the best suppliers, conducting quality audits, and negotiating prices for everything from textiles to machinery.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/untitled-24-66f60f9a5977a.webp",
-      link: "#"
     },
     {
+      id: "sourcing-abroad",
       title: "Sourcing Abroad",
       description: "Expand your horizons with global sourcing solutions tailored to your needs.",
+      fullContent: "Global sourcing made easy. We help you connect with international manufacturers and suppliers, ensuring high-quality imports that meet your specific business requirements.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/2150769942.jpg",
-      link: "#"
     },
     {
+      id: "export-education",
       title: "Export Education",
       description: "Master the art of global trade with our expert-led courses.",
+      fullContent: "Want to learn the export-import business? Our comprehensive courses cover everything from market research and buyer finding to logistics and payments, empowering you to trade globally.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/2149178634.jpg",
-      link: "#"
     }
   ],
+  categoryProducts: {
+    foods: [
+      { name: "Fresh Organic Turmeric", price: "Enquire", image: turmericImg },
+      { name: "Kashmiri Red Chilli", price: "Enquire", image: chilliImg },
+      { name: "Basmati Extra Long Grain", price: "Enquire", image: riceImg },
+      { name: "Premium Toor Dal", price: "Enquire", image: pulsesImg }
+    ],
+    handicrafts: [
+      { name: "Handcrafted Brass Vase", price: "Enquire", image: handicraftsImg },
+      { name: "Artisanal Wooden Decor", price: "Enquire", image: handicraftsImg },
+      { name: "Terracotta Sculpture", price: "Enquire", image: handicraftsImg }
+    ],
+    machinery: [
+      { name: "Industrial Centrifugal Pump", price: "Enquire", image: machineryImg },
+      { name: "Precision Gear Set", price: "Enquire", image: machineryImg }
+    ],
+    textiles: [
+      { name: "Pure Silk Saree", price: "Enquire", image: textilesImg },
+      { name: "Organic Cotton Fabric", price: "Enquire", image: textilesImg },
+      { name: "Premium Yarn Spools", price: "Enquire", image: textilesImg }
+    ]
+  },
   trending: [
     {
       id: "t1",
@@ -82,29 +110,6 @@ export const products = {
       name: "Silk Sarees",
       category: "Textiles",
       image: textilesImg,
-      price: "Enquire"
-    }
-  ],
-  items: [
-    {
-      id: "1",
-      category: "foods",
-      name: "Premium Turmeric",
-      image: turmericImg,
-      price: "Enquire"
-    },
-    {
-      id: "2",
-      category: "foods",
-      name: "Kashmiri Chilli",
-      image: chilliImg,
-      price: "Enquire"
-    },
-    {
-      id: "3",
-      category: "textiles",
-      name: "Cotton Yarn",
-      image: varietyHero,
       price: "Enquire"
     }
   ],
