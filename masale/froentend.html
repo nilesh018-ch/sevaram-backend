@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Masale Export - SPA</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary-color:#c1440e;
+    --secondary-color:#fdf6e3;
+    --accent-color:#9b5e34;
+    --text-color:#333;
+    --card-bg:#fff;
+    --header-font:'Playfair Display', serif;
+    --body-font:'Roboto', sans-serif;
+}
+[data-theme="dark"]{
+    --primary-color:#1e1e1e;
+    --secondary-color:#121212;
+    --accent-color:#7a4a2f;
+    --text-color:#fdf6e3;
+    --card-bg:#1e1e1e;
+}
+body{margin:0;padding:0;font-family:var(--body-font);background:var(--secondary-color);color:var(--text-color);transition:all 0.3s ease;}
+header{background:linear-gradient(135deg,#c1440e,#f2a654);color:white;padding:20px;text-align:center;font-family:var(--header-font);}
+header h1{margin:0;font-size:2rem;}
+nav a{margin:0 10px;color:white;text-decoration:none;font-weight:700;cursor:pointer;}
+nav a:hover{color:var(--accent-color);}
+#theme-toggle{position:fixed;top:10px;right:10px;padding:8px 12px;border-radius:5px;border:none;background-color:var(--primary-color);color:white;cursor:pointer;z-index:100;}
+#back-btn{position:fixed;top:10px;left:10px;padding:8px 12px;border-radius:5px;border:none;background-color:var(--accent-color);color:white;cursor:pointer;display:none;z-index:100;}
+section{padding:50px 20px;margin:20px auto;border-radius:15px;max-width:1200px;display:none;transition:0.5s;}
+h2{text-align:center;margin-bottom:30px;font-family:var(--header-font);font-size:2rem;color:var(--primary-color);}
+.product-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;}
+.card{border-radius:15px;width:260px;padding:20px;background:var(--card-bg);box-shadow:0 4px 15px rgba(0,0,0,0.1);transition: transform 0.3s, box-shadow 0.3s;text-align:center;}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.2);}
+.card h3{margin:10px 0 5px;font-family:var(--header-font);color:var(--accent-color);}
+.card p{margin:5px 0;font-size:14px;}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:10px;}
+.btn{padding:8px 15px;border:none;border-radius:8px;cursor:pointer;margin:5px;font-weight:600;font-size:0.9rem;}
+.btn-approve{background-color:green;color:white;}
+.btn-reject{background-color:red;color:white;}
+.carousel{position:relative;width:100%;max-width:900px;margin:0 auto 40px;overflow:hidden;border-radius:15px;}
+.carousel-images{display:flex;transition:transform 0.5s ease-in-out;}
+.carousel img{width:100%;flex-shrink:0;border-radius:15px;}
+.carousel-buttons{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);}
+.carousel-buttons button{background:rgba(0,0,0,0.5);color:white;border:none;padding:12px;cursor:pointer;border-radius:50%;transition:0.3s;}
+.carousel-buttons button:hover{background:rgba(0,0,0,0.8);}
+.chart-container{max-width:900px;margin:30px auto;background:white;padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+#search input{width:80%;max-width:500px;padding:10px;margin:0 auto 20px;display:block;border-radius:8px;border:1px solid #ccc;font-size:1rem;}
+
+/* Login Section */
+#login-section{
+    display:block;
+    max-width:400px;
+    margin:80px auto;
+    padding:40px 30px;
+    background:linear-gradient(135deg,#fbe6c2,#f2a654);
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease;
+    position:relative;
+    overflow:hidden;
+}
+#login-section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#6b2d0b;
+    font-size:2.2rem;
+    text-shadow:1px 1px 2px #fff;
+}
+#login-section input,#login-section select{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:1rem;
+    transition:0.3s;
+}
+#login-section input:focus,#login-section select:focus{
+    border-color:var(--primary-color);
+    box-shadow:0 0 10px rgba(193,68,14,0.5);
+    outline:none;
+}
+#login-section button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border-radius:12px;
+    border:none;
+    background:linear-gradient(135deg,#c1440e,#ff8c42);
+    color:white;
+    font-weight:700;
+    font-size:1.1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+#login-section button:hover{
+    transform:scale(1.05);
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Category backgrounds */
+#spices{background:linear-gradient(135deg,#fbe6c2,#f2a654);}
+#pulses{background:linear-gradient(135deg,#d8f3dc,#95d5b2);}
+#bajra{background:linear-gradient(135deg,#fff3e0,#ffb74d);}
+#jawari{background:linear-gradient(135deg,#e0f7fa,#4dd0e1);}
+#gehu{background:linear-gradient(135deg,#fff9c4,#fff176);}
+</style>
+</head>
+<body data-theme="light">
+
+<button id="theme-toggle">Toggle Theme</button>
+<button id="back-btn" onclick="goBack()">Back</button>
+
+<header>
+<h1>Global Masale Export</h1>
+<nav>
+<a onclick="showSection('spices')">Spices</a>
+<a onclick="showSection('pulses')">Pulses</a>
+<a onclick="showSection('bajra')">Bajra</a>
+<a onclick="showSection('jawari')">Jawari</a>
+<a onclick="showSection('gehu')">Wheat</a>
+<a onclick="showSection('admin')">Admin Panel</a>
+<a onclick="showSection('buyer')">Buyer Dashboard</a>
+</nav>
+</header>
+
+<section id="login-section">
+<h2>Welcome Back!</h2>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<select id="role">
+<option value="buyer">Buyer</option>
+<option value="admin">Admin</option>
+</select>
+<button onclick="login()">Login</button>
+</section>
+
+<section id="hero">
+<div class="carousel">
+<div class="carousel-images" id="carousel-images">
+<img src="https://images.unsplash.com/photo-1584999581081-7b3d408e03e3?auto=format&fit=crop&w=900&q=80" alt="Spices 1">
+<img src="https://images.unsplash.com/photo-1592928304893-11b8d21c93ec?auto=format&fit=crop&w=900&q=80" alt="Spices 2">
+<img src="https://images.unsplash.com/photo-1622383649157-c3b365d2ee2a?auto=format&w=900&q=80" alt="Spices 3">
+</div>
+<div class="carousel-buttons"><button id="prev">&#10094;</button><button id="next">&#10095;</button></div>
+</div>
+<h2>Premium Quality Masale & Grains for Export</h2>
+<p style="text-align:center;">ISO & FSSAI Certified | Exported Worldwide | Organic & Natural</p>
+</section>
+
+<section id="search"><input type="text" id="search-input" placeholder="Search products..." onkeyup="searchProducts()"></section>
+
+<section id="spices"><h2>Spices</h2><div class="product-grid" id="spices-grid"></div></section>
+<section id="pulses"><h2>Pulses</h2><div class="product-grid" id="pulses-grid"></div></section>
+<section id="bajra"><h2>Bajra</h2><div class="product-grid" id="bajra-grid"></div></section>
+<section id="jawari"><h2>Jawari</h2><div class="product-grid" id="jawari-grid"></div></section>
+<section id="gehu"><h2>Wheat (Gehu)</h2><div class="product-grid" id="gehu-grid"></div></section>
+
+<section id="buyer"><h2>Buyer Dashboard</h2><div class="product-grid" id="buyer-grid"></div></section>
+<section id="admin"><h2>Admin Panel</h2>
+<div class="product-grid" id="admin-grid"></div>
+<div class="chart-container"><canvas id="admin-chart" width="800" height="400"></canvas></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// SPA navigation
+function showSection(id){
+    document.querySelectorAll('section').forEach(s=>s.style.display='none');
+    document.getElementById(id).style.display='block';
+}
+
+// Theme toggle
+document.getElementById('theme-toggle').addEventListener('click',()=>{document.body.dataset.theme=document.body.dataset.theme==='light'?'dark':'light';});
+
+// Back button
+function goBack(){location.reload();}
+
+// Carousel
+let carouselIndex=0;
+const images=document.getElementById('carousel-images');
+const totalImages=images.children.length;
+document.getElementById('next').addEventListener('click',()=>{carouselIndex=(carouselIndex+1)%totalImages;updateCarousel();});
+document.getElementById('prev').addEventListener('click',()=>{carouselIndex=(carouselIndex-1+totalImages)%totalImages;updateCarousel();});
+function updateCarousel(){images.style.transform=`translateX(${-carouselIndex*100}%)`;}
+
+// Authentication token
+let token='';
+
+// Login function
+function login(){
+    const role=document.getElementById('role').value;
+    const username=document.getElementById('username').value;
+    const password=document.getElementById('password').value;
+
+    fetch('/api/token/',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({username,password})
+    }).then(r=>r.json()).then(data=>{
+        if(data.access){
+            token=data.access;
+            document.getElementById('login-section').style.display='none';
+            document.getElementById('back-btn').style.display='block';
+            if(role==='admin'){showSection('admin');loadAdmin();}
+            else{showSection('buyer');loadBuyerProducts();}
+        } else {alert('Login failed');}
+    });
+}
+
+// Functions to load products, admin panel, charts, add to cart, search...
+// Placeholder functions (replace with actual backend API)
+async function loadBuyerProducts(){/*...*/};
+async function loadAdmin(){/*...*/};
+async function setStatus(id,status){/*...*/};
+function renderChart(approved,pending){/*...*/};
+async function addToCart(id){alert('Added to cart!');};
+function searchProducts(){/*...*/};
+</script>
+</body>
+</html>
