@@ -4,6 +4,7 @@ import chilliImg from '@assets/stock_images/red_chilli_powder_in_bb2e7907.jpg';
 import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 
+// Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
 import handicraftsImg from '@assets/stock_images/indian_traditional_h_2a7c17d5.jpg';
 import machineryImg from '@assets/stock_images/industrial_machinery_8bcaf428.jpg';
@@ -47,41 +48,109 @@ export const products = {
       description: "Smooth customs clearance with expert CHA (Custom House Agent) services. We handle all documentation, assessment, and examination for your imports and exports.",
       fullContent: "Our Custom House Agency (CHA) services are designed to simplify the complex world of customs. We provide end-to-end support including: \n\n- Documentation and filing\n- Classification of goods\n- Duty assessment and payment\n- Physical examination of cargo\n- Final clearance and delivery.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg",
+      serviceDetails: {
+        headline: "Expert Customs Clearance with Sevaram Exim",
+        intro: "In the complex world of international trade, proper customs clearance is key to ensuring smooth business operations.",
+        benefitHeadline: "The Importance of Compliance in B2B",
+        benefitText: "Accurate and organized documentation is vital to the smooth functioning of any B2B transaction.",
+        subServices: [
+          { title: "Customs Documentation", desc: "We assist with all import-export customs paperwork." },
+          { title: "Invoice Prep", desc: "Accurate invoices and bills of lading." },
+          { title: "Certificate of Origin", desc: "Obtain certificates for export of goods." }
+        ]
+      }
     },
     {
       id: "logistics",
       title: "Logistics",
       description: "Efficient and reliable logistics, delivering your goods on time, every time.",
-      fullContent: "We provide global logistics solutions that ensure your cargo reaches its destination safely and on time. Our services include sea freight, air freight, and inland transportation with real-time tracking.",
+      fullContent: "We provide global logistics solutions that ensure your cargo reaches its destination safely and on time.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/16615.jpg",
+      serviceDetails: {
+        headline: "Seamless Logistics Solutions with Sevaram Exim",
+        intro: "Efficient supply chain management is the backbone of successful international trade.",
+        benefitHeadline: "Reliability in Global Shipping",
+        benefitText: "Timely delivery and safe handling are our top priorities for every shipment.",
+        subServices: [
+          { title: "Sea Freight", desc: "Cost-effective international shipping via ocean routes." },
+          { title: "Air Cargo", desc: "Fast and reliable air transport for urgent goods." },
+          { title: "Inland Transport", desc: "Secure road and rail transport across borders." }
+        ]
+      }
     },
     {
       id: "documentation",
       title: "Documentation",
       description: "Accurate and hassle-free documentation for seamless trade transactions.",
-      fullContent: "Trade documentation is critical. We assist with Bill of Lading, Certificates of Origin, Insurance, and all necessary export-import paperwork to ensure compliance with international regulations.",
+      fullContent: "Trade documentation is critical. We assist with Bill of Lading, Certificates of Origin, Insurance, and all necessary paperwork.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/16051.jpg",
+      serviceDetails: {
+        headline: "Hassle-Free Documentation Services with Sevaram Exim",
+        intro: "In the complex world of international trade and B2B transactions, proper documentation is key to ensuring smooth business operations.",
+        benefitHeadline: "The Importance of Documentation in B2B",
+        benefitText: "Accurate and organized documentation is vital to the smooth functioning of any B2B transaction, especially when dealing with international suppliers or buyers.",
+        subServices: [
+          { title: "Customs Documentation", desc: "We assist with all import-export customs paperwork, ensuring compliance with international trade laws." },
+          { title: "Invoice and Bill of Lading", desc: "Our team helps you create accurate invoices and bills of lading that meet international shipping standards." },
+          { title: "Certificate of Origin", desc: "We help businesses obtain certificates of origin for the export of goods, proving where your products are manufactured." },
+          { title: "Import and Export Licenses", desc: "Sevaram Exim assists businesses in obtaining the necessary licenses for importing and exporting goods." },
+          { title: "Inspection Certificates", desc: "We facilitate inspections of goods before shipping, ensuring that all quality standards are met." }
+        ]
+      }
     },
     {
       id: "sourcing-india",
       title: "Sourcing India",
       description: "Discover the best of Indian craftsmanship, sourced directly for your business.",
-      fullContent: "India offers a wealth of products. We act as your eyes and ears on the ground, finding the best suppliers, conducting quality audits, and negotiating prices for everything from textiles to machinery.",
+      fullContent: "India offers a wealth of products. We act as your eyes and ears on the ground.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/untitled-24-66f60f9a5977a.webp",
+      serviceDetails: {
+        headline: "Direct Sourcing from India",
+        intro: "Discover the richness of Indian products through our verified network of suppliers.",
+        benefitHeadline: "Quality Assurance",
+        benefitText: "We ensure that every product meets your specifications through rigorous quality audits.",
+        subServices: [
+          { title: "Supplier Sourcing", desc: "Finding the right manufacturing partner for your needs." },
+          { title: "Price Negotiation", desc: "Ensuring you get the best competitive market rates." },
+          { title: "Quality Audits", desc: "On-site inspections before any shipment." }
+        ]
+      }
     },
     {
       id: "sourcing-abroad",
       title: "Sourcing Abroad",
       description: "Expand your horizons with global sourcing solutions tailored to your needs.",
-      fullContent: "Global sourcing made easy. We help you connect with international manufacturers and suppliers, ensuring high-quality imports that meet your specific business requirements.",
+      fullContent: "Global sourcing made easy. We help you connect with international manufacturers and suppliers.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/2150769942.jpg",
+      serviceDetails: {
+        headline: "Global Sourcing Solutions",
+        intro: "Expand your reach by sourcing high-quality products from international markets.",
+        benefitHeadline: "Global Compliance",
+        benefitText: "We manage the complexities of international trade regulations for you.",
+        subServices: [
+          { title: "Global Network", desc: "Access to manufacturers across Asia, Europe, and America." },
+          { title: "Risk Management", desc: "Verified supplier backgrounds and secure logistics." },
+          { title: "Market Research", desc: "Finding trending products in global markets." }
+        ]
+      }
     },
     {
       id: "export-education",
       title: "Export Education",
       description: "Master the art of global trade with our expert-led courses.",
-      fullContent: "Want to learn the export-import business? Our comprehensive courses cover everything from market research and buyer finding to logistics and payments, empowering you to trade globally.",
+      fullContent: "Want to learn the export-import business? Our comprehensive courses cover everything.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/2149178634.jpg",
+      serviceDetails: {
+        headline: "Master Global Trade with Our Courses",
+        intro: "Empower yourself with the knowledge needed to succeed in the export-import industry.",
+        benefitHeadline: "Expert-Led Learning",
+        benefitText: "Our curriculum is designed by industry veterans with decades of experience.",
+        subServices: [
+          { title: "Basic Exporting", desc: "Learn the fundamentals of starting an export business." },
+          { title: "Documentation Course", desc: "Master the paperwork required for global trade." },
+          { title: "Market Finding", desc: "Strategies to find and verify international buyers." }
+        ]
+      }
     }
   ],
   categoryProducts: {
