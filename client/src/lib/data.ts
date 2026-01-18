@@ -4,7 +4,6 @@ import chilliImg from '@assets/stock_images/red_chilli_powder_in_bb2e7907.jpg';
 import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 
-// Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
 import handicraftsImg from '@assets/stock_images/indian_traditional_h_2a7c17d5.jpg';
 import machineryImg from '@assets/stock_images/industrial_machinery_8bcaf428.jpg';
@@ -12,10 +11,34 @@ import textilesImg from '@assets/stock_images/luxurious_indian_sil_d46d7a81.jpg'
 
 export const products = {
   categories: [
-    { id: "foods", label: "Foods & Vegetables", image: foodVegImg, count: "74 Products" },
-    { id: "handicrafts", label: "Handicrafts", image: handicraftsImg, count: "97 Products" },
-    { id: "machinery", label: "Machinery", image: machineryImg, count: "6 Products" },
-    { id: "textiles", label: "Textiles", image: textilesImg, count: "79 Products" }
+    { 
+      id: "foods", 
+      label: "Foods & Vegetables", 
+      image: foodVegImg, 
+      count: "74 Products",
+      description: "We source the freshest organic vegetables and fruits directly from dedicated Indian farms. Our supply chain ensures minimal transit time to preserve nutritional value and peak freshness for global markets."
+    },
+    { 
+      id: "handicrafts", 
+      label: "Handicrafts", 
+      image: handicraftsImg, 
+      count: "97 Products",
+      description: "Explore the soul of India through our artisanal handicrafts. From intricate brass work to traditional pottery, each piece tells a story of centuries-old craftsmanship and cultural heritage."
+    },
+    { 
+      id: "machinery", 
+      label: "Machinery", 
+      image: machineryImg, 
+      count: "6 Products",
+      description: "Reliable and high-performance industrial machinery. We provide precision-engineered components, pumps, and specialized tools that meet international quality standards for manufacturing excellence."
+    },
+    { 
+      id: "textiles", 
+      label: "Textiles", 
+      image: textilesImg, 
+      count: "79 Products",
+      description: "Indian textiles are world-renowned for their quality and texture. Our collection includes premium silk sarees, organic cotton fabrics, and high-tenacity yarns sourced from the finest weaving centers."
+    }
   ],
   services: [
     {
@@ -63,24 +86,24 @@ export const products = {
   ],
   categoryProducts: {
     foods: [
-      { name: "Fresh Organic Turmeric", price: "Enquire", image: turmericImg },
-      { name: "Kashmiri Red Chilli", price: "Enquire", image: chilliImg },
-      { name: "Basmati Extra Long Grain", price: "Enquire", image: riceImg },
-      { name: "Premium Toor Dal", price: "Enquire", image: pulsesImg }
+      { name: "Fresh Organic Turmeric", price: "Enquire", image: turmericImg, description: "Authentic Salem turmeric with high curcumin levels." },
+      { name: "Kashmiri Red Chilli", price: "Enquire", image: chilliImg, description: "Deep red color with mild heat, perfect for global cuisines." },
+      { name: "Basmati Extra Long Grain", price: "Enquire", image: riceImg, description: "Premium aged aromatic basmati rice with extra long grains." },
+      { name: "Premium Toor Dal", price: "Enquire", image: pulsesImg, description: "Cleaned and graded unpolished split pigeon peas." }
     ],
     handicrafts: [
-      { name: "Handcrafted Brass Vase", price: "Enquire", image: handicraftsImg },
-      { name: "Artisanal Wooden Decor", price: "Enquire", image: handicraftsImg },
-      { name: "Terracotta Sculpture", price: "Enquire", image: handicraftsImg }
+      { name: "Handcrafted Brass Vase", price: "Enquire", image: handicraftsImg, description: "Intricately carved brass vase from Moradabad." },
+      { name: "Artisanal Wooden Decor", price: "Enquire", image: handicraftsImg, description: "Sheesham wood carvings with traditional motifs." },
+      { name: "Terracotta Sculpture", price: "Enquire", image: handicraftsImg, description: "Earth-fired clay art from rural artisan clusters." }
     ],
     machinery: [
-      { name: "Industrial Centrifugal Pump", price: "Enquire", image: machineryImg },
-      { name: "Precision Gear Set", price: "Enquire", image: machineryImg }
+      { name: "Industrial Centrifugal Pump", price: "Enquire", image: machineryImg, description: "High-efficiency pump for heavy-duty industrial fluid handling." },
+      { name: "Precision Gear Set", price: "Enquire", image: machineryImg, description: "Custom-machined steel gears for automotive and manufacturing use." }
     ],
     textiles: [
-      { name: "Pure Silk Saree", price: "Enquire", image: textilesImg },
-      { name: "Organic Cotton Fabric", price: "Enquire", image: textilesImg },
-      { name: "Premium Yarn Spools", price: "Enquire", image: textilesImg }
+      { name: "Pure Silk Saree", price: "Enquire", image: textilesImg, description: "Hand-loomed Banarasi silk saree with gold zari work." },
+      { name: "Organic Cotton Fabric", price: "Enquire", image: textilesImg, description: "Certified organic cotton fabric, soft and breathable." },
+      { name: "Premium Yarn Spools", price: "Enquire", image: textilesImg, description: "High-tenacity cotton and polyester blend yarns." }
     ]
   },
   trending: [
