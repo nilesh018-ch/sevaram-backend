@@ -91,16 +91,6 @@ export default function Inquiry() {
               >
                 Back to Home
               </Button>
-              <Button
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.origin + "/inquiry");
-                  alert("Link copied to clipboard!");
-                }}
-                variant="outline"
-                className="flex items-center gap-2 h-12 rounded-full border-blue-200 text-[#2a56ff]"
-              >
-                <Copy className="w-4 h-4" /> Copy Inquiry Link for Social Media
-              </Button>
             </div>
           </motion.div>
         </main>
