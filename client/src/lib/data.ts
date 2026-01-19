@@ -76,7 +76,7 @@ export const products = {
       description: "Smooth customs clearance with expert CHA services.",
       image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg",
       serviceDetails: {
-        headline: "Expert Customs Clearance with Sevaram Exim",
+        headline: "Expert Customs Clearance with Sevaram Eximco",
         intro: "Proper customs clearance is key to ensuring smooth business operations.",
         benefitHeadline: "The Importance of Compliance in B2B",
         benefitText: "Accurate and organized documentation is vital to the smooth functioning of any B2B transaction.",

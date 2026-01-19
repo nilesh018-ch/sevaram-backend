@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-xl font-bold font-serif mb-4 text-primary">Indian Masala.</h3>
+            <h3 className="text-xl font-bold font-serif mb-4 text-primary">Sevaram Eximco and Services.</h3>
             <p className="text-white/60 text-sm leading-relaxed">
-              Your trusted partner for premium quality Indian spices and agricultural commodities. Exporting the essence of India to the world.
+              Your trusted partner for premium quality Indian spices, handicrafts, and agricultural commodities. Exporting the excellence of India to the world.
             </p>
           </div>
           
@@ -50,7 +50,7 @@ export default function Footer() {
         
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/40">
-            © {new Date().getFullYear()} Indian Masala Export Hub. All rights reserved.
+            © {new Date().getFullYear()} Sevaram Eximco and Services. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-sm text-white/40">
             <span>Made with</span>

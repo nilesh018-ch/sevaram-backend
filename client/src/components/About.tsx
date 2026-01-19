@@ -40,7 +40,7 @@ export default function About() {
               <h4 className="text-primary font-bold uppercase tracking-widest text-sm mb-2">About Our Company</h4>
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-serif">Bridging Indian Farms to Global Markets</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Indian Masala Export Hub is a premier exporter of high-quality Indian spices and agricultural commodities. We take pride in connecting international buyers with the rich, authentic flavors of India.
+                Sevaram Eximco and Services is a premier exporter of high-quality Indian spices, agricultural commodities, and sustainable handicrafts. We take pride in connecting international buyers with the rich, authentic excellence of India.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mt-4">
                 Our commitment to quality, transparency, and timely delivery has made us a trusted partner for businesses across Europe, Middle East, USA, and Southeast Asia. We ensure every shipment meets stringent international safety and quality standards.

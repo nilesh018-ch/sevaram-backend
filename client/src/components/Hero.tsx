@@ -18,7 +18,7 @@ export default function Hero() {
               India's Largest B2B Marketplace
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-              Sevaram Exim <span className="text-secondary">Serve</span>
+              Sevaram Eximco <span className="text-secondary">& Services</span>
             </h1>
             <p className="text-xl text-white/70 max-w-xl">
               Sourcing Made Easy. Connect with verified Indian suppliers. We handle everything from documentation to global logistics.
