@@ -310,7 +310,7 @@ export default function Inquiry() {
                         control={form.control}
                         name="additionalRequirements"
                         render={({ field }) => (
-                            <FormItem className="lg:col-span-2">
+                          <FormItem>
                             <FormLabel className="font-bold text-[#1a2b4b]">Special Packaging or Other Instructions</FormLabel>
                             <FormControl>
                               <Textarea 
