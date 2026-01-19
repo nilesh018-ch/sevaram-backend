@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ServiceDetail from "@/pages/ServiceDetail";
 import CategoryDetail from "@/pages/CategoryDetail";
+import Inquiry from "@/pages/Inquiry";
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/service/:id" component={ServiceDetail} />
       <Route path="/category/:id" component={CategoryDetail} />
+      <Route path="/inquiry" component={Inquiry} />
       <Route component={NotFound} />
     </Switch>
   );

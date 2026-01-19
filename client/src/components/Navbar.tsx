@@ -1,10 +1,12 @@
-import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search } from "lucide-react";
+import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [, setLocation] = useLocation();
   const logoUrl = "https://sevarameximserve.com/wp-content/uploads/2025/10/cropped-3D-1.jpg";
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export default function Navbar() {
       )}>
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => setLocation("/")}>
               <img src={logoUrl} alt="Sevaram Exim" className="h-12 w-auto object-contain rounded" />
               <div className="flex flex-col">
                 <span className={cn("text-xl font-black leading-none", isScrolled ? "text-primary" : "text-white")}>SEVARAM</span>
@@ -53,10 +55,10 @@ export default function Navbar() {
               "hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider",
               isScrolled ? "text-foreground" : "text-white"
             )}>
-              <a href="#" className="hover:text-secondary transition-colors">Home</a>
-              <a href="#about" className="hover:text-secondary transition-colors">About</a>
-              <a href="#services" className="hover:text-secondary transition-colors">Services</a>
-              <a href="#products" className="hover:text-secondary transition-colors">Marketplace</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); setLocation("/"); }} className="hover:text-secondary transition-colors">Home</a>
+              <a href="/#about" className="hover:text-secondary transition-colors">About</a>
+              <a href="/#services" className="hover:text-secondary transition-colors">Services</a>
+              <a href="/#products" className="hover:text-secondary transition-colors">Marketplace</a>
             </div>
           </div>
 
@@ -64,8 +66,12 @@ export default function Navbar() {
             <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-foreground" : "text-white")}>
               <Search className="w-5 h-5" />
             </Button>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6">
-              BECOME A SUPPLIER
+            <Button 
+              className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 flex items-center gap-2"
+              onClick={() => setLocation("/inquiry")}
+            >
+              <FileText className="w-4 h-4" />
+              GET INQUIRY
             </Button>
             <Button variant="ghost" size="icon" className={cn("lg:hidden", isScrolled ? "text-foreground" : "text-white")}>
               <Menu className="w-6 h-6" />
