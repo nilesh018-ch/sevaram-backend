@@ -341,7 +341,7 @@ export default function Inquiry() {
                          <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-1.5 rounded-full font-medium">
                            <ShieldCheck className="w-4 h-4" /> Secure Data
                          </div>
-                         <span>* Verified Export Partner - Sevaram Exim Serve</span>
+                         <span>* Verified Export Partner - Sevaram Eximco and Services </span>
                       </div>
                     </div>
                   </form>

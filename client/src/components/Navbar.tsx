@@ -46,8 +46,8 @@ export default function Navbar() {
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => setLocation("/")}>
               <img src={logoUrl} alt="Sevaram Exim" className="h-12 w-auto object-contain rounded" />
               <div className="flex flex-col">
-                <span className={cn("text-xl font-black leading-none", isScrolled ? "text-primary" : "text-white")}>SEVARAM</span>
-                <span className="text-secondary text-sm font-bold leading-none tracking-widest">EXIM SERVE</span>
+                <span className={cn("text-xl font-black leading-none", isScrolled ? "text-primary" : "text-white")}>SEVARAM EXIMCO</span>
+                <span className="text-secondary text-sm font-bold leading-none tracking-widest uppercase">AND SERVICES</span>
               </div>
             </div>
             
