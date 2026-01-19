@@ -17,15 +17,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Send, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, ClipboardCheck, Scale, Hash, CreditCard, ShieldCheck } from "lucide-react";
 
 const inquirySchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -36,6 +29,10 @@ const inquirySchema = z.object({
   quantity: z.string().min(1, "Quantity is required"),
   country: z.string().min(2, "Country is required"),
   brand: z.string().optional(),
+  targetPrice: z.string().optional(),
+  hsnCode: z.string().optional(),
+  paymentTerms: z.string().optional(),
+  labTestRequired: z.string().optional(),
   additionalRequirements: z.string().optional(),
 });
 
@@ -56,15 +53,17 @@ export default function Inquiry() {
       quantity: "",
       country: "",
       brand: "",
+      targetPrice: "",
+      hsnCode: "",
+      paymentTerms: "",
+      labTestRequired: "",
       additionalRequirements: "",
     },
   });
 
   function onSubmit(data: InquiryFormValues) {
     console.log("Inquiry Data:", data);
-    // In Mockup Mode, we simulate a successful submission
     setIsSubmitted(true);
-    // Note: To save this to a real Excel/Database, graduation to Fullstack is required.
   }
 
   if (isSubmitted) {
@@ -100,7 +99,7 @@ export default function Inquiry() {
       <Navbar />
       
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto px-4 max-w-5xl">
           <Button 
             variant="ghost" 
             className="group flex items-center gap-2 text-[#1a2b4b] hover:text-primary font-bold pl-0 mb-8"
@@ -116,127 +115,214 @@ export default function Inquiry() {
           >
             <Card className="rounded-[2.5rem] shadow-2xl border-none overflow-hidden">
               <CardHeader className="bg-[#1a2b4b] text-white p-10 text-center">
-                <CardTitle className="text-3xl lg:text-4xl font-bold">Inquiry for Export</CardTitle>
-                <p className="text-white/70 mt-2">Get the best quotes from Sevaram Exim Serve</p>
+                <CardTitle className="text-3xl lg:text-4xl font-bold">Export Inquiry Form</CardTitle>
+                <p className="text-white/70 mt-2">Get professional quotes and compliance support</p>
               </CardHeader>
               <CardContent className="p-10">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {/* Full Name */}
-                      <FormField
-                        control={form.control}
-                        name="fullName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Full Name *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="John Doe" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-bold text-primary border-b pb-2">Contact Information</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <FormField
+                          control={form.control}
+                          name="fullName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Full Name *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="John Doe" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      {/* Email */}
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Email Address *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="john@example.com" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Email Address *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="john@example.com" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      {/* Mobile No */}
-                      <FormField
-                        control={form.control}
-                        name="mobileNo"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Mobile Number *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="mobileNo"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Mobile Number *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      {/* WhatsApp No */}
-                      <FormField
-                        control={form.control}
-                        name="whatsappNo"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">WhatsApp Number *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="whatsappNo"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">WhatsApp Number *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
 
-                      {/* Product Name */}
-                      <FormField
-                        control={form.control}
-                        name="productName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Product Name *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="e.g. Basmati Rice, Bamboo Vase" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-bold text-primary border-b pb-2">Product & Export Details</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <FormField
+                          control={form.control}
+                          name="productName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Product Name *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. Basmati Rice" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      {/* Quantity */}
-                      <FormField
-                        control={form.control}
-                        name="quantity"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Quantity Required *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="e.g. 10 Tons, 500 Units" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="quantity"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Quantity *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. 10 Tons" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      {/* Country */}
-                      <FormField
-                        control={form.control}
-                        name="country"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Country of Destination *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="e.g. USA, Dubai, UK" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                        <FormField
+                          control={form.control}
+                          name="country"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Destination Country *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. UAE" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                      {/* Brand */}
+                        <FormField
+                          control={form.control}
+                          name="targetPrice"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
+                                <Scale className="w-4 h-4 text-secondary" /> Target Price (USD)
+                              </FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. $500/Ton" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="hsnCode"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
+                                <Hash className="w-4 h-4 text-secondary" /> HSN Code
+                              </FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. 1006.30" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="paymentTerms"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
+                                <CreditCard className="w-4 h-4 text-secondary" /> Payment Terms
+                              </FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. LC, TT, 30% Advance" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-bold text-primary border-b pb-2">Compliance & Requirements</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <FormField
+                          control={form.control}
+                          name="labTestRequired"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
+                                <ClipboardCheck className="w-4 h-4 text-secondary" /> Lab Test & Certificate
+                              </FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. SGS, ISO, Phytosanitary" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="brand"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Brand Preference</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g. Sevaram Choice" {...field} className="h-12 rounded-xl border-blue-100" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
                       <FormField
                         control={form.control}
-                        name="brand"
+                        name="additionalRequirements"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Brand Preference (If any)</FormLabel>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Special Packaging or Requirements</FormLabel>
                             <FormControl>
-                              <Input placeholder="e.g. Sevaram Choice" {...field} className="h-12 rounded-xl border-blue-50 focus:ring-[#2a56ff]" />
+                              <Textarea 
+                                placeholder="Describe any custom requirements..." 
+                                className="min-h-[120px] rounded-2xl border-blue-100"
+                                {...field} 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -244,35 +330,19 @@ export default function Inquiry() {
                       />
                     </div>
 
-                    {/* Additional Requirements */}
-                    <FormField
-                      control={form.control}
-                      name="additionalRequirements"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="font-bold text-[#1a2b4b]">Additional Requirements / Other Features</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Describe any special packaging, quality standards, or other details..." 
-                              className="min-h-[120px] rounded-2xl border-blue-50 focus:ring-[#2a56ff]"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
                     <div className="pt-6">
                       <Button 
                         type="submit" 
-                        className="w-full h-16 bg-[#2a56ff] hover:bg-blue-700 text-white font-black text-xl rounded-2xl shadow-xl shadow-blue-200 flex items-center justify-center gap-3 transition-transform hover:scale-[1.02]"
+                        className="w-full h-16 bg-[#2a56ff] hover:bg-blue-700 text-white font-black text-xl rounded-2xl shadow-xl shadow-blue-200 flex items-center justify-center gap-3 transition-transform hover:scale-[1.01]"
                       >
-                        Submit Inquiry <Send className="w-6 h-6" />
+                        Send Professional Inquiry <Send className="w-6 h-6" />
                       </Button>
-                      <p className="text-center text-muted-foreground mt-4 text-sm">
-                        * All fields marked with asterisk are required.
-                      </p>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
+                         <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-1.5 rounded-full font-medium">
+                           <ShieldCheck className="w-4 h-4" /> Secure Data
+                         </div>
+                         <span>* Verified Export Partner - Sevaram Exim Serve</span>
+                      </div>
                     </div>
                   </form>
                 </Form>
