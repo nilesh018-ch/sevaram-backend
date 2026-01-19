@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Send, CheckCircle2, ClipboardCheck, Scale, Hash, CreditCard, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, Copy, ShieldCheck, ClipboardCheck, Scale, Hash, CreditCard } from "lucide-react";
 
 const inquirySchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -29,10 +29,11 @@ const inquirySchema = z.object({
   quantity: z.string().min(1, "Quantity is required"),
   country: z.string().min(2, "Country is required"),
   brand: z.string().optional(),
-  targetPrice: z.string().optional(),
+  labTest: z.string().min(1, "Specify if lab test is required"),
+  certificate: z.string().min(1, "Specify certificate requirement"),
+  targetPrice: z.string().min(1, "Target price is required"),
   hsnCode: z.string().optional(),
-  paymentTerms: z.string().optional(),
-  labTestRequired: z.string().optional(),
+  paymentTerms: z.string().min(1, "Specify payment terms"),
   additionalRequirements: z.string().optional(),
 });
 
@@ -53,16 +54,18 @@ export default function Inquiry() {
       quantity: "",
       country: "",
       brand: "",
+      labTest: "",
+      certificate: "",
       targetPrice: "",
       hsnCode: "",
       paymentTerms: "",
-      labTestRequired: "",
       additionalRequirements: "",
     },
   });
 
   function onSubmit(data: InquiryFormValues) {
     console.log("Inquiry Data:", data);
+    // Simulating success in mockup mode
     setIsSubmitted(true);
   }
 
@@ -81,12 +84,24 @@ export default function Inquiry() {
             <p className="text-muted-foreground text-lg">
               Your inquiry has been received. Our export team will contact you shortly with the best quotes.
             </p>
-            <Button 
-              onClick={() => setLocation("/")}
-              className="bg-[#2a56ff] hover:bg-blue-700 h-12 px-8 rounded-full font-bold"
-            >
-              Back to Home
-            </Button>
+            <div className="flex flex-col gap-3 pt-4">
+              <Button 
+                onClick={() => setLocation("/")}
+                className="bg-[#2a56ff] hover:bg-blue-700 h-12 px-8 rounded-full font-bold"
+              >
+                Back to Home
+              </Button>
+              <Button
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.origin + "/inquiry");
+                  alert("Link copied to clipboard!");
+                }}
+                variant="outline"
+                className="flex items-center gap-2 h-12 rounded-full border-blue-200 text-[#2a56ff]"
+              >
+                <Copy className="w-4 h-4" /> Copy Inquiry Link for Social Media
+              </Button>
+            </div>
           </motion.div>
         </main>
         <Footer />
@@ -115,15 +130,15 @@ export default function Inquiry() {
           >
             <Card className="rounded-[2.5rem] shadow-2xl border-none overflow-hidden">
               <CardHeader className="bg-[#1a2b4b] text-white p-10 text-center">
-                <CardTitle className="text-3xl lg:text-4xl font-bold">Export Inquiry Form</CardTitle>
-                <p className="text-white/70 mt-2">Get professional quotes and compliance support</p>
+                <CardTitle className="text-3xl lg:text-4xl font-bold text-white">Professional Export Inquiry</CardTitle>
+                <p className="text-white/70 mt-2">Submit detailed requirements to Sevaram Eximco and Services</p>
               </CardHeader>
               <CardContent className="p-10">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
                     <div className="space-y-6">
-                      <h3 className="text-xl font-bold text-primary border-b pb-2">Contact Information</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Contact Details</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <FormField
                           control={form.control}
                           name="fullName"
@@ -137,7 +152,6 @@ export default function Inquiry() {
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="email"
@@ -151,7 +165,6 @@ export default function Inquiry() {
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="mobileNo"
@@ -165,7 +178,6 @@ export default function Inquiry() {
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="whatsappNo"
@@ -183,8 +195,8 @@ export default function Inquiry() {
                     </div>
 
                     <div className="space-y-6">
-                      <h3 className="text-xl font-bold text-primary border-b pb-2">Product & Export Details</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Product & Export Requirements</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <FormField
                           control={form.control}
                           name="productName"
@@ -192,13 +204,12 @@ export default function Inquiry() {
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b]">Product Name *</FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. Basmati Rice" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. Basmati Rice" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="quantity"
@@ -206,13 +217,12 @@ export default function Inquiry() {
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b]">Quantity *</FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. 10 Tons" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. 10 Tons" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="country"
@@ -220,55 +230,52 @@ export default function Inquiry() {
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b]">Destination Country *</FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. UAE" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. USA" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="targetPrice"
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <Scale className="w-4 h-4 text-secondary" /> Target Price (USD)
+                                <Scale className="w-4 h-4 text-[#2a56ff]" /> Target Price (USD) *
                               </FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. $500/Ton" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. $500/Ton" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="hsnCode"
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <Hash className="w-4 h-4 text-secondary" /> HSN Code
+                                <Hash className="w-4 h-4 text-[#2a56ff]" /> HSN Code
                               </FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. 1006.30" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. 1006.30" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
                           name="paymentTerms"
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <CreditCard className="w-4 h-4 text-secondary" /> Payment Terms
+                                <CreditCard className="w-4 h-4 text-[#2a56ff]" /> Payment Terms *
                               </FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. LC, TT, 30% Advance" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. LC, TT, Advance" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -278,49 +285,47 @@ export default function Inquiry() {
                     </div>
 
                     <div className="space-y-6">
-                      <h3 className="text-xl font-bold text-primary border-b pb-2">Compliance & Requirements</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Compliance & Testing</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <FormField
                           control={form.control}
-                          name="labTestRequired"
+                          name="labTest"
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <ClipboardCheck className="w-4 h-4 text-secondary" /> Lab Test & Certificate
+                                <ClipboardCheck className="w-4 h-4 text-[#2a56ff]" /> Lab Test Required? *
                               </FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. SGS, ISO, Phytosanitary" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. SGS, ISO or None" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
-
                         <FormField
                           control={form.control}
-                          name="brand"
+                          name="certificate"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Brand Preference</FormLabel>
+                              <FormLabel className="font-bold text-[#1a2b4b]">Certificates Required *</FormLabel>
                               <FormControl>
-                                <Input placeholder="e.g. Sevaram Choice" {...field} className="h-12 rounded-xl border-blue-100" />
+                                <Input placeholder="e.g. Phytosanitary, CO" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
                           )}
                         />
                       </div>
-
                       <FormField
                         control={form.control}
                         name="additionalRequirements"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Special Packaging or Requirements</FormLabel>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Special Packaging or Other Instructions</FormLabel>
                             <FormControl>
                               <Textarea 
-                                placeholder="Describe any custom requirements..." 
-                                className="min-h-[120px] rounded-2xl border-blue-100"
+                                placeholder="Any specific requirements for packaging or shipping..." 
+                                className="min-h-[120px] rounded-2xl border-blue-100 focus:ring-[#2a56ff]"
                                 {...field} 
                               />
                             </FormControl>
@@ -335,13 +340,13 @@ export default function Inquiry() {
                         type="submit" 
                         className="w-full h-16 bg-[#2a56ff] hover:bg-blue-700 text-white font-black text-xl rounded-2xl shadow-xl shadow-blue-200 flex items-center justify-center gap-3 transition-transform hover:scale-[1.01]"
                       >
-                        Send Professional Inquiry <Send className="w-6 h-6" />
+                        Submit Professional Inquiry <Send className="w-6 h-6" />
                       </Button>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
                          <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-1.5 rounded-full font-medium">
-                           <ShieldCheck className="w-4 h-4" /> Secure Data
+                           <ShieldCheck className="w-4 h-4" /> Secure Inquiry
                          </div>
-                         <span>* Verified Export Partner - Sevaram Eximco and Services </span>
+                         <span>* Verified Export Partner - Sevaram Eximco and Services</span>
                       </div>
                     </div>
                   </form>
