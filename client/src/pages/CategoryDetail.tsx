@@ -30,6 +30,13 @@ export default function CategoryDetail() {
     );
   }
 
+    const groupedProducts = catProducts.reduce((acc: any, product: any) => {
+      const sub = product.subCategory || "General Products";
+      if (!acc[sub]) acc[sub] = [];
+      acc[sub].push(product);
+      return acc;
+    }, {});
+
   return (
     <div className="min-h-screen bg-[#f8faff]">
       <Navbar />
@@ -78,53 +85,63 @@ export default function CategoryDetail() {
           </div>
         </section>
 
-        {/* Product Grid */}
+        {/* Product Grid Grouped by Sub-categories */}
         <section className="py-24 px-8 lg:px-20 bg-white">
           <div className="container mx-auto">
-            <div className="flex items-center justify-between mb-16">
-              <h2 className="text-4xl font-bold text-[#1a2b4b]">Available Products</h2>
-              <div className="h-1 flex-1 bg-muted mx-8 hidden lg:block"></div>
-            </div>
+            {Object.keys(groupedProducts).map((subTitle, sectionIdx) => (
+              <div key={subTitle} className="mb-20">
+                <div className="flex items-center gap-6 mb-12">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2b4b] whitespace-nowrap">
+                    {subTitle === "General Products" ? "Available Products" : subTitle}
+                  </h2>
+                  <div className="h-0.5 flex-1 bg-gradient-to-r from-primary/30 to-transparent"></div>
+                </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-              {catProducts.map((product, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group bg-white rounded-3xl overflow-hidden border border-border/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500"
-                >
-                  <div className="relative aspect-square overflow-hidden">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Button className="bg-white text-primary rounded-full font-bold shadow-lg">
-                        Quick View
-                      </Button>
-                    </div>
-                  </div>
-                  <div className="p-8 space-y-4">
-                    <h3 className="text-xl font-bold text-[#1a2b4b] group-hover:text-primary transition-colors">
-                      {product.name}
-                    </h3>
-                    <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
-                      {product.description}
-                    </p>
-                    <div className="flex items-center justify-between pt-4">
-                      <span className="text-2xl font-black text-secondary">{product.price}</span>
-                      <Button size="sm" className="rounded-xl px-6 bg-primary font-bold">
-                        Enquire
-                      </Button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+                  {groupedProducts[subTitle].map((product: any, i: number) => (
+                    <motion.div
+                      key={product.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="group bg-white rounded-3xl overflow-hidden border border-border/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500"
+                    >
+                      <div className="relative aspect-square overflow-hidden">
+                        <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <Button className="bg-white text-primary rounded-full font-bold shadow-lg" onClick={() => setLocation("/inquiry")}>
+                            Quick Inquiry
+                          </Button>
+                        </div>
+                      </div>
+                      <div className="p-8 space-y-4">
+                        <h3 className="text-xl font-bold text-[#1a2b4b] group-hover:text-primary transition-colors">
+                          {product.name}
+                        </h3>
+                        <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
+                          {product.description}
+                        </p>
+                        <div className="flex items-center justify-between pt-4">
+                          <span className="text-2xl font-black text-secondary">{product.price}</span>
+                          <Button 
+                            size="sm" 
+                            className="rounded-xl px-6 bg-primary font-bold"
+                            onClick={() => setLocation("/inquiry")}
+                          >
+                            Enquire
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
