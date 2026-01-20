@@ -5,6 +5,7 @@ import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 import mainBambooImg from '../assets/generated_images/bamboo_handicraft_main_123.png';
 import mainVegImg from '../assets/generated_images/vegetables_main_123.png';
+import mainPulsesImg from '../assets/generated_images/pulses_main_123.png';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
@@ -36,9 +37,9 @@ export const products = {
     { 
       id: "pulses", 
       label: "Premium Pulses", 
-      image: pulsesImg, 
+      image: mainPulsesImg, 
       count: "35 Products",
-      description: "High-protein unpolished pulses and lentils, cleaned and graded."
+      description: "High-protein unpolished pulses and lentils, cleaned and graded for export."
     },
     { 
       id: "millets", 
@@ -136,7 +137,18 @@ export const products = {
   ],
   categoryProducts: {
     fruits: [
-      { name: "Alphonso Mangoes", price: "Enquire", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=400", description: "Sweet and aromatic king of mangoes." }
+      { name: "Banana (Cavendish)", price: "Enquire", image: "https://images.unsplash.com/photo-1571771894821-ad9b5886479c?auto=format&fit=crop&q=80&w=400", description: "Premium quality Cavendish bananas for export." },
+      { name: "Mango (Alphonso)", price: "Enquire", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=400", description: "The king of mangoes, sweet and aromatic Alphonso." },
+      { name: "Mango (Kesar)", price: "Enquire", image: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&q=80&w=400", description: "Sweet and pulpy Kesar mangoes from Gujarat." },
+      { name: "Pomegranate", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "Juicy red pomegranates with high antioxidant value." },
+      { name: "Grapes (Green)", price: "Enquire", image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&q=80&w=400", description: "Fresh seedless green grapes." },
+      { name: "Grapes (Black)", price: "Enquire", image: "https://images.unsplash.com/photo-1601275868399-45bec4f4cd9d?auto=format&fit=crop&q=80&w=400", description: "Sweet and juicy black grapes." },
+      { name: "Apple", price: "Enquire", image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export-grade apples." },
+      { name: "Orange", price: "Enquire", image: "https://images.unsplash.com/photo-1582722872445-41DC50bfce30?auto=format&fit=crop&q=80&w=400", description: "Juicy oranges packed with Vitamin C." },
+      { name: "Pineapple", price: "Enquire", image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&q=80&w=400", description: "Fresh tropical pineapples." },
+      { name: "Papaya", price: "Enquire", image: "https://images.unsplash.com/photo-1526470494524-894128b7ca02?auto=format&fit=crop&q=80&w=400", description: "Ripe and healthy papayas." },
+      { name: "Watermelon", price: "Enquire", image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=400", description: "Hydrating and sweet watermelons." },
+      { name: "Muskmelon", price: "Enquire", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400", description: "Fragrant and sweet muskmelons." }
     ],
     vegetables: [
       // High-Demand Export Vegetables
@@ -187,7 +199,16 @@ export const products = {
       { name: "Salem Turmeric Powder", price: "Enquire", image: turmericImg, description: "Pure turmeric with high curcumin content." }
     ],
     pulses: [
-      { name: "Toor Dal (Arhar)", price: "Enquire", image: pulsesImg, description: "Cleaned and graded unpolished pulses." }
+      { name: "Kabuli Chana (Chickpeas)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Large export-grade Kabuli Chickpeas." },
+      { name: "Toor Dal (Pigeon Peas)", price: "Enquire", image: pulsesImg, description: "Unpolished and graded split pigeon peas." },
+      { name: "Masoor Dal (Red Lentils)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Cleaned and sorted red lentils." },
+      { name: "Urad Dal (Whole & Split)", price: "Enquire", image: pulsesImg, description: "High-protein black gram (whole and split)." },
+      { name: "Moong Dal (Whole & Split)", price: "Enquire", image: pulsesImg, description: "Fresh and nutritious green gram (whole and split)." },
+      { name: "Rajma (Red Kidney Beans)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Premium quality red kidney beans." },
+      { name: "Black Eyed Peas (Lobia)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Hand-sorted black-eyed peas." },
+      { name: "White Peas (Safed Vatana)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "High-quality dried white peas." },
+      { name: "Green Peas (Dried)", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Premium dried green peas." },
+      { name: "Horse Gram (Kulthi Dal)", price: "Enquire", image: pulsesImg, description: "Nutritious and traditional Indian horse gram." }
     ],
     millets: [
       { name: "Pearl Millet (Bajra)", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Nutritious and gluten-free." }
