@@ -4,6 +4,7 @@ import chilliImg from '@assets/stock_images/red_chilli_powder_in_bb2e7907.jpg';
 import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 import mainBambooImg from '../assets/generated_images/bamboo_handicraft_main_123.png';
+import mainVegImg from '../assets/generated_images/vegetables_main_123.png';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
@@ -21,9 +22,9 @@ export const products = {
     { 
       id: "vegetables", 
       label: "Fresh Vegetables", 
-      image: foodVegImg, 
+      image: mainVegImg, 
       count: "62 Products",
-      description: "Farm-fresh organic vegetables ensured with cold-chain supply."
+      description: "Farm-fresh organic vegetables ensured with cold-chain supply for global markets."
     },
     { 
       id: "spices", 
@@ -138,7 +139,49 @@ export const products = {
       { name: "Alphonso Mangoes", price: "Enquire", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=400", description: "Sweet and aromatic king of mangoes." }
     ],
     vegetables: [
-      { name: "Organic Red Onions", price: "Enquire", image: foodVegImg, description: "High-quality Nasik onions." }
+      // High-Demand Export Vegetables
+      { name: "Fresh Red Onions", price: "Enquire", image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&q=80&w=400", description: "Premium quality red onions for global export.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "White Onions", price: "Enquire", image: "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export-grade white onions.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Garlic (Normal & Big Size)", price: "Enquire", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&q=80&w=400", description: "Graded garlic bulbs in various export sizes.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Ginger (Fresh / Air-dried)", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "High-aroma fresh and air-dried ginger.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Green Chillies", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Sharp and pungent fresh green chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Red Chillies (Fresh)", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Vibrant and spicy fresh red chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      
+      // Common Fresh Vegetables (Bulk Export)
+      { name: "Fresh Tomatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Farm-fresh ripe tomatoes for bulk supply.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Potatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "High-quality starchy potatoes for export.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Carrots", price: "Enquire", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400", description: "Crunchy and sweet farm-fresh carrots.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Beetroot", price: "Enquire", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400", description: "Deep red nutritious beetroots.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Cabbage", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Freshly harvested compact cabbage heads.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Cauliflower", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Clean and white export-grade cauliflower.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+
+      // Green & Leafy Vegetables
+      { name: "Cucumber", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Hydrating and fresh export cucumbers.", subCategory: "🥒 Green & Leafy Vegetables" },
+      { name: "Bottle Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Traditional fresh bottle gourd.", subCategory: "🥒 Green & Leafy Vegetables" },
+      { name: "Bitter Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Nutritious and fresh bitter gourd.", subCategory: "🥒 Green & Leafy Vegetables" },
+      { name: "Ridge Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Freshly picked ridge gourd.", subCategory: "🥒 Green & Leafy Vegetables" },
+      { name: "Sponge Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Tender sponge gourd for international markets.", subCategory: "🥒 Green & Leafy Vegetables" },
+      { name: "Zucchini", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Premium export-quality zucchini.", subCategory: "🥒 Green & Leafy Vegetables" },
+
+      // Premium & International Market Vegetables
+      { name: "Bell Peppers (Red, Yellow, Green)", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Colorful and fresh premium bell peppers.", subCategory: "🌽 Premium & International Market Vegetables" },
+      { name: "Baby Corn", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Tender and sweet export-grade baby corn.", subCategory: "🌽 Premium & International Market Vegetables" },
+      { name: "Broccoli", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Premium quality fresh broccoli florets.", subCategory: "🌽 Premium & International Market Vegetables" },
+      { name: "Lettuce (Iceberg / Romaine)", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export lettuce varieties.", subCategory: "🌽 Premium & International Market Vegetables" },
+      { name: "Cherry Tomatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Sweet and vibrant cherry tomatoes.", subCategory: "🌽 Premium & International Market Vegetables" },
+
+      // Beans & Pods
+      { name: "Green Beans", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Freshly harvested green beans.", subCategory: "🫘 Beans & Pods" },
+      { name: "Cluster Beans (Gawar)", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "High-quality cluster beans for export.", subCategory: "🫘 Beans & Pods" },
+      { name: "French Beans", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Tender and fresh French beans.", subCategory: "🫘 Beans & Pods" },
+      { name: "Peas (Fresh / Frozen)", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Sweet green peas in bulk export quality.", subCategory: "🫘 Beans & Pods" },
+
+      // Herbs (High Value)
+      { name: "Fresh Coriander", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Aromatic fresh coriander leaves.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
+      { name: "Mint Leaves", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Refreshing and aromatic fresh mint.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
+      { name: "Curry Leaves", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Traditional aromatic curry leaves.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
+      { name: "Basil", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Fresh premium basil for international markets.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
+      { name: "Spinach", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Fresh and nutritious export spinach.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" }
     ],
     spices: [
       { name: "Salem Turmeric Powder", price: "Enquire", image: turmericImg, description: "Pure turmeric with high curcumin content." }
