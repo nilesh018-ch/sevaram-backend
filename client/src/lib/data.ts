@@ -6,6 +6,9 @@ import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
 import mainBambooImg from '../assets/generated_images/bamboo_handicraft_main_123.png';
 import mainVegImg from '../assets/generated_images/vegetables_main_123.png';
 import mainPulsesImg from '../assets/generated_images/pulses_main_123.png';
+import mainMilletsImg from '../assets/generated_images/millets_main_123.png';
+import mainRiceImg from '../assets/generated_images/rice_main_123.png';
+import mainTextilesImg from '../assets/generated_images/textiles_main_123.png';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
@@ -44,16 +47,16 @@ export const products = {
     { 
       id: "millets", 
       label: "Healthy Millets", 
-      image: "https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&q=80&w=800", 
+      image: mainMilletsImg, 
       count: "24 Products",
-      description: "Traditional Indian millets like Bajra, Jowar, and Ragi."
+      description: "The superfood of the future. Traditional Indian millets like Bajra, Jowar, and Ragi."
     },
     { 
       id: "rices", 
       label: "Basmati & Non-Basmati Rice", 
-      image: riceImg, 
+      image: mainRiceImg, 
       count: "56 Products",
-      description: "Long-grain aromatic Basmati and nutritious Sona Masoori varieties."
+      description: "From long-grain aromatic Basmati to nutritious Sona Masoori varieties."
     },
     { 
       id: "bamboo", 
@@ -65,7 +68,7 @@ export const products = {
     { 
       id: "textiles", 
       label: "Textiles", 
-      image: textilesImg, 
+      image: mainTextilesImg, 
       count: "79 Products",
       description: "Premium silk sarees, organic cotton fabrics, and high-tenacity yarns."
     }
@@ -151,49 +154,14 @@ export const products = {
       { name: "Muskmelon", price: "Enquire", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400", description: "Fragrant and sweet muskmelons." }
     ],
     vegetables: [
-      // High-Demand Export Vegetables
       { name: "Fresh Red Onions", price: "Enquire", image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&q=80&w=400", description: "Premium quality red onions for global export.", subCategory: "🌶️ High-Demand Export Vegetables" },
       { name: "White Onions", price: "Enquire", image: "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export-grade white onions.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Garlic (Normal & Big Size)", price: "Enquire", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&q=80&w=400", description: "Graded garlic bulbs in various export sizes.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Ginger (Fresh / Air-dried)", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "High-aroma fresh and air-dried ginger.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Green Chillies", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Sharp and pungent fresh green chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Red Chillies (Fresh)", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Vibrant and spicy fresh red chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      
-      // Common Fresh Vegetables (Bulk Export)
-      { name: "Fresh Tomatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Farm-fresh ripe tomatoes for bulk supply.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-      { name: "Potatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "High-quality starchy potatoes for export.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-      { name: "Carrots", price: "Enquire", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400", description: "Crunchy and sweet farm-fresh carrots.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-      { name: "Beetroot", price: "Enquire", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=400", description: "Deep red nutritious beetroots.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-      { name: "Cabbage", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Freshly harvested compact cabbage heads.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-      { name: "Cauliflower", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Clean and white export-grade cauliflower.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-
-      // Green & Leafy Vegetables
-      { name: "Cucumber", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Hydrating and fresh export cucumbers.", subCategory: "🥒 Green & Leafy Vegetables" },
-      { name: "Bottle Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Traditional fresh bottle gourd.", subCategory: "🥒 Green & Leafy Vegetables" },
-      { name: "Bitter Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Nutritious and fresh bitter gourd.", subCategory: "🥒 Green & Leafy Vegetables" },
-      { name: "Ridge Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Freshly picked ridge gourd.", subCategory: "🥒 Green & Leafy Vegetables" },
-      { name: "Sponge Gourd", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Tender sponge gourd for international markets.", subCategory: "🥒 Green & Leafy Vegetables" },
-      { name: "Zucchini", price: "Enquire", image: "https://images.unsplash.com/photo-1449333254728-79e2e2321851?auto=format&fit=crop&q=80&w=400", description: "Premium export-quality zucchini.", subCategory: "🥒 Green & Leafy Vegetables" },
-
-      // Premium & International Market Vegetables
-      { name: "Bell Peppers (Red, Yellow, Green)", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Colorful and fresh premium bell peppers.", subCategory: "🌽 Premium & International Market Vegetables" },
-      { name: "Baby Corn", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Tender and sweet export-grade baby corn.", subCategory: "🌽 Premium & International Market Vegetables" },
-      { name: "Broccoli", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Premium quality fresh broccoli florets.", subCategory: "🌽 Premium & International Market Vegetables" },
-      { name: "Lettuce (Iceberg / Romaine)", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export lettuce varieties.", subCategory: "🌽 Premium & International Market Vegetables" },
-      { name: "Cherry Tomatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1566384842113-ad735a790b88?auto=format&fit=crop&q=80&w=400", description: "Sweet and vibrant cherry tomatoes.", subCategory: "🌽 Premium & International Market Vegetables" },
-
-      // Beans & Pods
-      { name: "Green Beans", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Freshly harvested green beans.", subCategory: "🫘 Beans & Pods" },
-      { name: "Cluster Beans (Gawar)", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "High-quality cluster beans for export.", subCategory: "🫘 Beans & Pods" },
-      { name: "French Beans", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Tender and fresh French beans.", subCategory: "🫘 Beans & Pods" },
-      { name: "Peas (Fresh / Frozen)", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Sweet green peas in bulk export quality.", subCategory: "🫘 Beans & Pods" },
-
-      // Herbs (High Value)
-      { name: "Fresh Coriander", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Aromatic fresh coriander leaves.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
-      { name: "Mint Leaves", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Refreshing and aromatic fresh mint.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
-      { name: "Curry Leaves", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Traditional aromatic curry leaves.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
-      { name: "Basil", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Fresh premium basil for international markets.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" },
-      { name: "Spinach", price: "Enquire", image: "https://images.unsplash.com/photo-1466632348740-99ef0f47d96c?auto=format&fit=crop&q=80&w=400", description: "Fresh and nutritious export spinach.", subCategory: "🌿 Herbs (High Value – Air Cargo Export)" }
+      { name: "Garlic", price: "Enquire", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&q=80&w=400", description: "Graded garlic bulbs.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Ginger", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "Fresh and air-dried ginger.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Green Chillies", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Fresh green chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Red Chillies (Fresh)", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Fresh red chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Fresh Tomatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Farm-fresh tomatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Potatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "High-quality starchy potatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" }
     ],
     spices: [
       { name: "Salem Turmeric Powder", price: "Enquire", image: turmericImg, description: "Pure turmeric with high curcumin content." }
@@ -202,74 +170,41 @@ export const products = {
       { name: "Kabuli Chana (Chickpeas)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Large export-grade Kabuli Chickpeas." },
       { name: "Toor Dal (Pigeon Peas)", price: "Enquire", image: pulsesImg, description: "Unpolished and graded split pigeon peas." },
       { name: "Masoor Dal (Red Lentils)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Cleaned and sorted red lentils." },
-      { name: "Urad Dal (Whole & Split)", price: "Enquire", image: pulsesImg, description: "High-protein black gram (whole and split)." },
-      { name: "Moong Dal (Whole & Split)", price: "Enquire", image: pulsesImg, description: "Fresh and nutritious green gram (whole and split)." },
+      { name: "Urad Dal", price: "Enquire", image: pulsesImg, description: "High-protein black gram." },
+      { name: "Moong Dal", price: "Enquire", image: pulsesImg, description: "Fresh and nutritious green gram." },
       { name: "Rajma (Red Kidney Beans)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Premium quality red kidney beans." },
       { name: "Black Eyed Peas (Lobia)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Hand-sorted black-eyed peas." },
-      { name: "White Peas (Safed Vatana)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "High-quality dried white peas." },
+      { name: "White Peas", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "High-quality dried white peas." },
       { name: "Green Peas (Dried)", price: "Enquire", image: "https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&q=80&w=400", description: "Premium dried green peas." },
-      { name: "Horse Gram (Kulthi Dal)", price: "Enquire", image: pulsesImg, description: "Nutritious and traditional Indian horse gram." }
+      { name: "Horse Gram (Kulthi Dal)", price: "Enquire", image: pulsesImg, description: "Nutritious horse gram." }
     ],
     millets: [
-      { name: "Pearl Millet (Bajra)", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Nutritious and gluten-free." }
+      { name: "Pearl Millet (Bajra)", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Nutritious pearl millet." },
+      { name: "Finger Millet (Ragi)", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Calcium-rich finger millet." },
+      { name: "Foxtail Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Healthy foxtail millet." },
+      { name: "Barnyard Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Premium barnyard millet." },
+      { name: "Kodo Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Nutritious kodo millet." },
+      { name: "Little Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "High-fiber little millet." }
     ],
     rices: [
-      { name: "1121 Basmati Rice", price: "Enquire", image: riceImg, description: "Extra-long grain aromatic basmati rice." }
+      { name: "1121 Basmati Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Extra-long grain aromatic basmati rice." },
+      { name: "Sona Masoori Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Premium non-basmati rice." },
+      { name: "Long Grain Parboiled Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "High-quality parboiled rice." },
+      { name: "IR64 Raw Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Standard export quality IR64 rice." },
+      { name: "Matta Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Traditional red matta rice." },
+      { name: "Black Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Nutritious premium black rice." }
     ],
     bamboo: [
-      // Home Decor
-      { name: "Bamboo Flower Vases", price: "Enquire", image: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=400", description: "Elegant decorative bamboo flower vases.", subCategory: "🏺 Home Décor Items" },
-      { name: "Decorative Bamboo Baskets", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Beautifully woven decorative baskets.", subCategory: "🏺 Home Décor Items" },
-      { name: "Handcrafted Wall Hangings", price: "Enquire", image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400", description: "Traditional handcrafted bamboo wall art.", subCategory: "🏺 Home Décor Items" },
-      { name: "Bamboo Table Centerpieces", price: "Enquire", image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400", description: "Artistic centerpieces for dining tables.", subCategory: "🏺 Home Décor Items" },
-      { name: "Natural Fiber Showpieces", price: "Enquire", image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly decorative showpieces.", subCategory: "🏺 Home Décor Items" },
-      
-      // Storage
-      { name: "Bamboo Storage Bins", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Sustainable storage solutions.", subCategory: "🧺 Storage & Utility Products" },
-      { name: "Handwoven Baskets", price: "Enquire", image: "https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&q=80&w=400", description: "Multipurpose handwoven baskets.", subCategory: "🧺 Storage & Utility Products" },
-      { name: "Bamboo Laundry Baskets", price: "Enquire", image: "https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&q=80&w=400", description: "Handmade laundry storage.", subCategory: "🧺 Storage & Utility Products" },
-      { name: "Grain & Rice Storage", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Traditional containers for grains.", subCategory: "🧺 Storage & Utility Products" },
-      { name: "Handmade Utility Trays", price: "Enquire", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400", description: "Durable handmade utility trays.", subCategory: "🧺 Storage & Utility Products" },
-
-      // Kitchen
-      { name: "Bamboo Serving Trays", price: "Enquire", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly serving trays.", subCategory: "🍽️ Kitchen & Dining Products" },
-      { name: "Bamboo Bread Baskets", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Woven baskets for kitchen use.", subCategory: "🍽️ Kitchen & Dining Products" },
-      { name: "Bamboo Cutlery Holders", price: "Enquire", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400", description: "Organized cutlery storage.", subCategory: "🍽️ Kitchen & Dining Products" },
-      { name: "Bamboo Plates & Bowls", price: "Enquire", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly dining sets.", subCategory: "🍽️ Kitchen & Dining Products" },
-      { name: "Bamboo Tea Coasters", price: "Enquire", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400", description: "Set of handcrafted coasters.", subCategory: "🍽️ Kitchen & Dining Products" },
-
-      // Furniture
-      { name: "Bamboo Stools", price: "Enquire", image: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&q=80&w=400", description: "Strong and portable bamboo stools.", subCategory: "🪑 Furniture & Large Handicrafts" },
-      { name: "Bamboo Chairs & Tables", price: "Enquire", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&q=80&w=400", description: "Handcrafted furniture sets.", subCategory: "🪑 Furniture & Large Handicrafts" },
-      { name: "Bamboo Shelves", price: "Enquire", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&q=80&w=400", description: "Elegant bamboo storage shelves.", subCategory: "🪑 Furniture & Large Handicrafts" },
-      { name: "Bamboo Room Dividers", price: "Enquire", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&q=80&w=400", description: "Artistic partitions for rooms.", subCategory: "🪑 Furniture & Large Handicrafts" },
-      { name: "Bamboo Lamp Stands", price: "Enquire", image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=400", description: "Sturdy bamboo stands for lamps.", subCategory: "🪑 Furniture & Large Handicrafts" },
-
-      // Lighting
-      { name: "Bamboo Hanging Lamps", price: "Enquire", image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=400", description: "Warm hanging light fixtures.", subCategory: "🕯️ Lighting & Lamps" },
-      { name: "Bamboo Table Lamps", price: "Enquire", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly desk lighting.", subCategory: "🕯️ Lighting & Lamps" },
-      { name: "Bamboo Lanterns", price: "Enquire", image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=400", description: "Traditional decorative lanterns.", subCategory: "🕯️ Lighting & Lamps" },
-      { name: "Decorative Light Shades", price: "Enquire", image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=400", description: "Artistic bamboo light covers.", subCategory: "🕯️ Lighting & Lamps" },
-
-      // Gift Items
-      { name: "Bamboo Gift Boxes", price: "Enquire", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", description: "Handmade bamboo gift packaging.", subCategory: "🎁 Gift & Handcrafted Items" },
-      { name: "Corporate Gift Sets", price: "Enquire", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly gifts for professionals.", subCategory: "🎁 Gift & Handcrafted Items" },
-      { name: "Custom Bamboo Products", price: "Enquire", image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400", description: "Bespoke bamboo items for bulk.", subCategory: "🎁 Gift & Handcrafted Items" },
-
-      // Garden
-      { name: "Bamboo Plant Pots", price: "Enquire", image: "https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly garden planters.", subCategory: "🌱 Garden & Outdoor Products" },
-      { name: "Bamboo Garden Fencing", price: "Enquire", image: "https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&q=80&w=400", description: "Sustainable garden partitions.", subCategory: "🌱 Garden & Outdoor Products" },
-      { name: "Bamboo Bird Houses", price: "Enquire", image: "https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&q=80&w=400", description: "Handcrafted shelters for birds.", subCategory: "🌱 Garden & Outdoor Products" },
-      { name: "Bamboo Wind Chimes", price: "Enquire", image: "https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?auto=format&fit=crop&q=80&w=400", description: "Natural sounding garden decor.", subCategory: "🌱 Garden & Outdoor Products" },
-
-      // Fashion
-      { name: "Bamboo Handbags", price: "Enquire", image: "https://images.unsplash.com/photo-1544816153-199d8217527d?auto=format&fit=crop&q=80&w=400", description: "Trendy bamboo fashion bags.", subCategory: "👜 Fashion & Lifestyle Accessories" },
-      { name: "Bamboo Jewelry Boxes", price: "Enquire", image: "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?auto=format&fit=crop&q=80&w=400", description: "Safe storage for accessories.", subCategory: "👜 Fashion & Lifestyle Accessories" },
-      { name: "Bamboo Bangles", price: "Enquire", image: "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly bamboo jewelry.", subCategory: "👜 Fashion & Lifestyle Accessories" },
-      { name: "Eco-Friendly Wallets", price: "Enquire", image: "https://images.unsplash.com/photo-1544816153-199d8217527d?auto=format&fit=crop&q=80&w=400", description: "Natural fiber pouches and wallets.", subCategory: "👜 Fashion & Lifestyle Accessories" }
+      { name: "Bamboo Flower Vases", price: "Enquire", image: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=400", description: "Elegant bamboo flower vases.", subCategory: "🏺 Home Décor Items" },
+      { name: "Bamboo Storage Bins", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Sustainable storage solutions.", subCategory: "🧺 Storage & Utility Products" }
     ],
     textiles: [
-      { name: "Pure Silk Saree", price: "Enquire", image: textilesImg, description: "Hand-loomed Banarasi silk saree." }
+      { name: "Pure Silk Saree", price: "Enquire", image: "https://images.unsplash.com/photo-1610030469915-9a08fa996e4a?auto=format&fit=crop&q=80&w=400", description: "Hand-loomed Banarasi silk saree." },
+      { name: "Organic Cotton Fabric", price: "Enquire", image: "https://images.unsplash.com/photo-1528459840556-4293ca914a1e?auto=format&fit=crop&q=80&w=400", description: "Eco-friendly organic cotton." },
+      { name: "Handcrafted Jute Bags", price: "Enquire", image: "https://images.unsplash.com/photo-1544816153-199d8217527d?auto=format&fit=crop&q=80&w=400", description: "Sustainable handcrafted jute bags." },
+      { name: "Embroidered Textiles", price: "Enquire", image: "https://images.unsplash.com/photo-1610030469915-9a08fa996e4a?auto=format&fit=crop&q=80&w=400", description: "Exquisite traditional embroidery." },
+      { name: "Linen Home Furnishings", price: "Enquire", image: "https://images.unsplash.com/photo-1528459840556-4293ca914a1e?auto=format&fit=crop&q=80&w=400", description: "Premium linen home textiles." },
+      { name: "Printed Cotton Kurtis", price: "Enquire", image: "https://images.unsplash.com/photo-1610030469915-9a08fa996e4a?auto=format&fit=crop&q=80&w=400", description: "Fashionable printed cotton kurtis." }
     ]
   },
   trending: [
