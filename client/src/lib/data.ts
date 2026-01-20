@@ -3,7 +3,7 @@ import turmericImg from '@assets/stock_images/turmeric_powder_in_w_899f649c.jpg'
 import chilliImg from '@assets/stock_images/red_chilli_powder_in_bb2e7907.jpg';
 import riceImg from '@assets/stock_images/basmati_rice_grains__e77a255e.jpg';
 import pulsesImg from '@assets/stock_images/assorted_indian_lent_d7b9cc73.jpg';
-import mainBambooImg from '@assets/generated_images/bamboo_handicraft_main_123.png';
+import mainBambooImg from '../assets/generated_images/bamboo_handicraft_main_123.png';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
