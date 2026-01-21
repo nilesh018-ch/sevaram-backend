@@ -21,7 +21,16 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-xl font-bold font-serif mb-4 text-primary">Sevaram Eximco and Services.</h3>
+            <div className="mb-6">
+              <div className="flex flex-col">
+                <span className="text-3xl font-black leading-none tracking-tighter text-[#00aeef]">SEVARAM</span>
+                <div className="flex items-center w-full mt-1">
+                  <div className="h-[2px] flex-1 bg-white/20"></div>
+                  <span className="text-[10px] font-bold leading-none px-2 whitespace-nowrap text-white/60">EXIMCO AND SERVICES</span>
+                  <div className="h-[2px] flex-1 bg-white/20"></div>
+                </div>
+              </div>
+            </div>
             <p className="text-white/60 text-sm leading-relaxed">
               Your trusted partner for premium quality Indian spices, handicrafts, and agricultural commodities. Exporting the excellence of India to the world.
             </p>

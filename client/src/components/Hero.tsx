@@ -17,8 +17,15 @@ export default function Hero() {
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
               India's Largest B2B Marketplace
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-              Sevaram Eximco <span className="text-secondary">& Services</span>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              <div className="flex flex-col">
+                <span className="text-[#00aeef] font-black tracking-tighter">SEVARAM</span>
+                <div className="flex items-center w-full max-w-md mt-2">
+                  <div className="h-[3px] flex-1 bg-white/30"></div>
+                  <span className="text-white text-lg md:text-xl font-bold px-4 whitespace-nowrap tracking-widest">EXIMCO AND SERVICES</span>
+                  <div className="h-[3px] flex-1 bg-white/30"></div>
+                </div>
+              </div>
             </h1>
             <p className="text-xl text-white/70 max-w-xl">
               Sourcing Made Easy. Connect with verified Indian suppliers. We handle everything from documentation to global logistics.

@@ -47,10 +47,13 @@ export default function Navbar() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-12">
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => setLocation("/")}>
-              <img src={logoUrl} alt="Sevaram Exim" className="h-12 w-auto object-contain rounded" />
-              <div className="flex flex-col">
-                <span className={cn("text-xl font-black leading-none", isScrolled ? "text-primary" : "text-white")}>SEVARAM EXIMCO</span>
-                <span className="text-secondary text-sm font-bold leading-none tracking-widest uppercase">AND SERVICES</span>
+              <div className="flex flex-col items-center">
+                <span className={cn("text-3xl font-black leading-none tracking-tighter", isScrolled ? "text-[#00aeef]" : "text-[#00aeef]")}>SEVARAM</span>
+                <div className="flex items-center w-full mt-1">
+                  <div className="h-[2px] flex-1 bg-[#555]"></div>
+                  <span className={cn("text-[10px] font-bold leading-none px-2 whitespace-nowrap", isScrolled ? "text-[#555]" : "text-[#555]")}>EXIMCO AND SERVICES</span>
+                  <div className="h-[2px] flex-1 bg-[#555]"></div>
+                </div>
               </div>
             </div>
             
