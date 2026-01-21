@@ -46,7 +46,8 @@ export default function Navbar() {
       )}>
         <div className="container mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => setLocation("/")}>
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setLocation("/")}>
+              <img src={logoUrl} alt="Sevaram Exim" className="h-14 w-auto object-contain rounded" />
               <div className="flex flex-col items-center">
                 <span className={cn("text-3xl font-black leading-none tracking-tighter", isScrolled ? "text-[#00aeef]" : "text-[#00aeef]")}>SEVARAM</span>
                 <div className="flex items-center w-full mt-1">
