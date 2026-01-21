@@ -1,6 +1,21 @@
-import { Heart } from "lucide-react";
+import { Heart, Users } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    // Generate a realistic starting number and increment it
+    const startCount = 12540 + Math.floor(Math.random() * 100);
+    setVisitorCount(startCount);
+    
+    const interval = setInterval(() => {
+      setVisitorCount(prev => prev + Math.floor(Math.random() * 3));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <footer className="bg-foreground text-white py-12 border-t border-white/10">
       <div className="container mx-auto px-4">
@@ -10,6 +25,23 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed">
               Your trusted partner for premium quality Indian spices, handicrafts, and agricultural commodities. Exporting the excellence of India to the world.
             </p>
+            <div className="mt-6 flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/10 w-fit">
+              <div className="bg-primary/20 p-2 rounded-lg">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Live Visitors</p>
+                <p className="text-xl font-black text-white tabular-nums">
+                  {visitorCount.toLocaleString()}
+                </p>
+              </div>
+              <div className="flex gap-1 ml-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+              </div>
+            </div>
           </div>
           
           <div>
