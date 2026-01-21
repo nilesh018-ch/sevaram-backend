@@ -164,7 +164,16 @@ export const products = {
       { name: "Potatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "High-quality starchy potatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" }
     ],
     spices: [
-      { name: "Salem Turmeric Powder", price: "Enquire", image: turmericImg, description: "Pure turmeric with high curcumin content." }
+      { name: "Black Pepper", price: "Enquire", image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&q=80&w=400", description: "Premium quality bold black pepper." },
+      { name: "Cardamom (Green)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Aromatic green cardamom pods." },
+      { name: "Turmeric", price: "Enquire", image: turmericImg, description: "Pure turmeric with high curcumin content." },
+      { name: "Cumin Seeds (Jeera)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "High-aroma Indian cumin seeds." },
+      { name: "Coriander Seeds", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Fresh and flavorful coriander seeds." },
+      { name: "Dry Red Chilli", price: "Enquire", image: chilliImg, description: "Kashmiri and Byadgi red chillies." },
+      { name: "Ginger (Dry / Powder)", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "Premium dry ginger and powder." },
+      { name: "Cloves (Laung)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Highly aromatic cloves." },
+      { name: "Cinnamon (Dalchini)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Natural cinnamon bark." },
+      { name: "Fenugreek Seeds (Methi)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Nutritious fenugreek seeds." }
     ],
     pulses: [
       { name: "Kabuli Chana (Chickpeas)", price: "Enquire", image: "https://images.unsplash.com/photo-1585915607448-4e1ca158525e?auto=format&fit=crop&q=80&w=400", description: "Large export-grade Kabuli Chickpeas." },
@@ -184,7 +193,8 @@ export const products = {
       { name: "Foxtail Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Healthy foxtail millet." },
       { name: "Barnyard Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Premium barnyard millet." },
       { name: "Kodo Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Nutritious kodo millet." },
-      { name: "Little Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "High-fiber little millet." }
+      { name: "Little Millet", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "High-fiber little millet." },
+      { name: "Gahu (Wheat Millets)", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Premium quality wheat millets." }
     ],
     rices: [
       { name: "1121 Basmati Rice", price: "Enquire", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=400", description: "Extra-long grain aromatic basmati rice." },
