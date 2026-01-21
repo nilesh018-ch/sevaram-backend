@@ -1,4 +1,4 @@
-import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search, FileText, Users } from "lucide-react";
+import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -6,7 +6,6 @@ import { useLocation } from "wouter";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [visitorCount, setVisitorCount] = useState(0);
   const [, setLocation] = useLocation();
   const logoUrl = "https://sevarameximserve.com/wp-content/uploads/2025/10/cropped-3D-1.jpg";
 
@@ -14,16 +13,8 @@ export default function Navbar() {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     
-    // Visitor counter logic
-    const startCount = 14280 + Math.floor(Math.random() * 50);
-    setVisitorCount(startCount);
-    const interval = setInterval(() => {
-      setVisitorCount(prev => prev + Math.floor(Math.random() * 2));
-    }, 4000);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      clearInterval(interval);
     };
   }, []);
 
@@ -71,14 +62,6 @@ export default function Navbar() {
               <a href="/#about" className="hover:text-secondary transition-colors">About</a>
               <a href="/#services" className="hover:text-secondary transition-colors">Services</a>
               <a href="/#products" className="hover:text-secondary transition-colors">Marketplace</a>
-              
-              <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/20">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span className="font-bold text-[11px] tracking-wider text-white">LIVE: {visitorCount.toLocaleString()}</span>
-              </div>
             </div>
           </div>
 
