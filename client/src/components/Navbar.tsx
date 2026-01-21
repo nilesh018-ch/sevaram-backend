@@ -1,4 +1,4 @@
-import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search, FileText } from "lucide-react";
+import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin, Menu, Search, FileText, Users } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -6,13 +6,25 @@ import { useLocation } from "wouter";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [visitorCount, setVisitorCount] = useState(0);
   const [, setLocation] = useLocation();
   const logoUrl = "https://sevarameximserve.com/wp-content/uploads/2025/10/cropped-3D-1.jpg";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    // Visitor counter logic
+    const startCount = 14280 + Math.floor(Math.random() * 50);
+    setVisitorCount(startCount);
+    const interval = setInterval(() => {
+      setVisitorCount(prev => prev + Math.floor(Math.random() * 2));
+    }, 4000);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(interval);
+    };
   }, []);
 
   return (
@@ -27,11 +39,21 @@ export default function Navbar() {
             <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Phone className="w-3 h-3 text-secondary" /> +91 98765 43210</span>
             <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> info@sevarameximserve.com</span>
           </div>
-          <div className="flex items-center gap-4">
-            <Facebook className="w-3 h-3 hover:text-white cursor-pointer" />
-            <Instagram className="w-3 h-3 hover:text-white cursor-pointer" />
-            <Twitter className="w-3 h-3 hover:text-white cursor-pointer" />
-            <Linkedin className="w-3 h-3 hover:text-white cursor-pointer" />
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 px-3 py-0.5 bg-white/5 rounded-full border border-white/10">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+              </span>
+              <span className="font-bold text-[10px] tracking-wider text-white/90">LIVE: {visitorCount.toLocaleString()}</span>
+            </div>
+            <div className="h-3 w-[1px] bg-white/10 mx-1"></div>
+            <div className="flex items-center gap-3">
+              <Facebook className="w-3 h-3 hover:text-white cursor-pointer" />
+              <Instagram className="w-3 h-3 hover:text-white cursor-pointer" />
+              <Twitter className="w-3 h-3 hover:text-white cursor-pointer" />
+              <Linkedin className="w-3 h-3 hover:text-white cursor-pointer" />
+            </div>
           </div>
         </div>
       </div>
