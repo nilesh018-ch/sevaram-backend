@@ -16,6 +16,14 @@ import orangeImg from '../assets/images/orange.jpg';
 import appleImg from '../assets/images/apple.jpg';
 import grapesGreenImg from '../assets/images/grapes_green.jpg';
 import pomegranateImg from '../assets/images/pomegranate.jpg';
+import redOnionsImg from '../assets/images/red_onions.jpg';
+import whiteOnionsImg from '../assets/images/white_onions.jpg';
+import garlicImg from '../assets/images/garlic.jpg';
+import gingerImg from '../assets/images/ginger.jpg';
+import greenChilliesImg from '../assets/images/green_chillies.jpg';
+import redChilliesImg from '../assets/images/red_chillies.jpg';
+import tomatoesImg from '../assets/images/tomatoes.jpg';
+import potatoesImg from '../assets/images/potatoes.jpg';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
@@ -161,14 +169,14 @@ export const products = {
       { name: "Muskmelon", price: "Enquire", image: muskmelonImg, description: "Fragrant and sweet muskmelons." }
     ],
     vegetables: [
-      { name: "Fresh Red Onions", price: "Enquire", image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&q=80&w=400", description: "Premium quality red onions for global export.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "White Onions", price: "Enquire", image: "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export-grade white onions.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Garlic", price: "Enquire", image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&q=80&w=400", description: "Graded garlic bulbs.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Ginger", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "Fresh and air-dried ginger.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Green Chillies", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Fresh green chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Red Chillies (Fresh)", price: "Enquire", image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&q=80&w=400", description: "Fresh red chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
-      { name: "Fresh Tomatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "Farm-fresh tomatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
-      { name: "Potatoes", price: "Enquire", image: "https://images.unsplash.com/photo-1518977676601-b53f02ac6d31?auto=format&fit=crop&q=80&w=400", description: "High-quality starchy potatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" }
+      { name: "Fresh Red Onions", price: "Enquire", image: redOnionsImg, description: "Premium quality red onions for global export.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "White Onions", price: "Enquire", image: whiteOnionsImg, description: "Crisp and fresh export-grade white onions.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Garlic", price: "Enquire", image: garlicImg, description: "Graded garlic bulbs.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Ginger", price: "Enquire", image: gingerImg, description: "Fresh and air-dried ginger.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Green Chillies", price: "Enquire", image: greenChilliesImg, description: "Fresh green chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Red Chillies (Fresh)", price: "Enquire", image: redChilliesImg, description: "Fresh red chillies.", subCategory: "🌶️ High-Demand Export Vegetables" },
+      { name: "Fresh Tomatoes", price: "Enquire", image: tomatoesImg, description: "Farm-fresh tomatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" },
+      { name: "Potatoes", price: "Enquire", image: potatoesImg, description: "High-quality starchy potatoes.", subCategory: "🍅 Common Fresh Vegetables (Bulk Export)" }
     ],
     spices: [
       { name: "Black Pepper", price: "Enquire", image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&q=80&w=400", description: "Premium quality bold black pepper." },
