@@ -1,8 +1,10 @@
-import { Heart, Users } from "lucide-react";
+import { Heart, Users, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Footer() {
   const [visitorCount, setVisitorCount] = useState(0);
+  const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   useEffect(() => {
     // Generate a realistic starting number and increment it
@@ -15,6 +17,15 @@ export default function Footer() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setIsSubscribed(true);
+      setEmail("");
+      setTimeout(() => setIsSubscribed(false), 5000);
+    }
+  };
 
   return (
     <footer className="bg-foreground text-white py-12 border-t border-white/10">
@@ -60,16 +71,26 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Newsletter</h4>
             <p className="text-white/60 text-sm mb-4">Subscribe for latest updates and market trends.</p>
-            <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-white/10 border border-white/10 rounded px-3 py-2 text-sm w-full focus:outline-none focus:border-primary"
-              />
-              <button className="bg-primary px-3 py-2 rounded text-white text-sm font-medium hover:bg-primary/90">
-                Join
-              </button>
-            </div>
+            {isSubscribed ? (
+              <div className="flex items-center gap-2 text-green-400 bg-green-400/10 border border-green-400/20 p-3 rounded text-sm">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Subscribed successfully!</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex gap-2">
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email" 
+                  required
+                  className="bg-white/10 border border-white/10 rounded px-3 py-2 text-sm w-full focus:outline-none focus:border-primary"
+                />
+                <button type="submit" className="bg-primary px-3 py-2 rounded text-white text-sm font-medium hover:bg-primary/90">
+                  Join
+                </button>
+              </form>
+            )}
           </div>
         </div>
         
