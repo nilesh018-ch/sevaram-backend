@@ -93,15 +93,17 @@ export const products = {
       id: "cha",
       title: "CHA Services",
       description: "Smooth customs clearance with expert CHA services.",
-      image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg",
+      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop",
       serviceDetails: {
-        headline: "Expert Customs Clearance",
-        intro: "Proper customs clearance is key to ensuring smooth business operations.",
-        benefitHeadline: "Compliance in B2B",
-        benefitText: "Accurate and organized documentation is vital to B2B transactions.",
+        headline: "Expert Customs House Agent (CHA) Services",
+        intro: "In the complex world of international trade, navigating customs regulations is critical. Our expert CHA services ensure your cargo moves across borders without delay or compliance issues.",
+        benefitHeadline: "Why Choose Our CHA Services?",
+        benefitText: "We specialize in handling complex documentation and regulatory requirements, providing you with a seamless export-import experience that minimizes risks and maximizes efficiency.",
         subServices: [
-          { title: "Customs Documentation", desc: "Assistance with import-export customs paperwork." },
-          { title: "Invoice Prep", desc: "Accurate invoices and bills of lading." }
+          { title: "Customs Documentation", desc: "Complete handling of Bill of Entry, Shipping Bills, and necessary certificates for legal compliance." },
+          { title: "Duty & Tax Consultancy", desc: "Expert advice on customs tariffs, duty structures, and potential tax exemptions for your specific products." },
+          { title: "Regulatory Compliance", desc: "Ensuring all shipments adhere to the latest international trade laws and local customs regulations." },
+          { title: "Liaison with Authorities", desc: "Professional coordination with customs officials to facilitate quick inspection and clearance of goods." }
         ]
       }
     },
@@ -109,15 +111,17 @@ export const products = {
       id: "logistics",
       title: "Logistics",
       description: "Efficient and reliable logistics, delivering your goods on time.",
-      image: "https://busyexim.com/wp-content/uploads/2024/09/16615.jpg",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
       serviceDetails: {
-        headline: "Seamless Logistics Solutions",
-        intro: "Efficient supply chain management is the backbone of trade.",
-        benefitHeadline: "Global Shipping Reliability",
-        benefitText: "Timely delivery and safe handling are our top priorities.",
+        headline: "End-to-End Global Logistics Solutions",
+        intro: "Reliable logistics is the backbone of successful international trade. We offer comprehensive shipping solutions tailored to your specific cargo needs, ensuring timely and safe delivery anywhere in the world.",
+        benefitHeadline: "Our Logistics Advantages",
+        benefitText: "With a global network of partners and a commitment to operational excellence, we provide transparent tracking and optimized routing for all your export requirements.",
         subServices: [
-          { title: "Sea Freight", desc: "Cost-effective international shipping." },
-          { title: "Air Cargo", desc: "Fast and reliable air transport." }
+          { title: "Ocean Freight", desc: "Full Container Load (FCL) and Less than Container Load (LCL) services for cost-effective global shipping." },
+          { title: "Air Freight", desc: "Priority air cargo services for time-sensitive shipments that require rapid international delivery." },
+          { title: "Warehousing & Distribution", desc: "Secure storage facilities and efficient inventory management to streamline your supply chain operations." },
+          { title: "Last-Mile Delivery", desc: "Dedicated ground transportation ensuring your products reach their final destination safely and promptly." }
         ]
       }
     },
@@ -125,14 +129,17 @@ export const products = {
       id: "documentation",
       title: "Documentation",
       description: "Accurate and hassle-free documentation.",
-      image: "https://busyexim.com/wp-content/uploads/2024/09/16051.jpg",
+      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop",
       serviceDetails: {
-        headline: "Hassle-Free Documentation Services",
-        intro: "In international trade, proper documentation is key.",
-        benefitHeadline: "Documentation Importance",
-        benefitText: "Accurate documentation is vital to smooth B2B operations.",
+        headline: "Hassle-Free Export Documentation Services",
+        intro: "The success of a B2B export transaction often depends on the accuracy of the paperwork. Our team meticulously manages every document to prevent delays and ensure smooth financial transactions.",
+        benefitHeadline: "Importance of Accurate Documentation",
+        benefitText: "From certificates of origin to specialized quality reports, we handle all the paperwork so you can focus on growing your business while we ensure legal and financial safety.",
         subServices: [
-          { title: "Customs Compliance", desc: "Ensuring adherence to trade laws." }
+          { title: "Export Invoicing", desc: "Preparation of professional commercial invoices and packing lists that meet international B2B standards." },
+          { title: "Certificates of Origin", desc: "Official processing of GSP and Non-GSP certificates to facilitate preferential trade agreements." },
+          { title: "Quality & Inspection Reports", desc: "Coordination with third-party agencies for necessary product inspections and certification reports." },
+          { title: "Banking Documentation", desc: "Assistance with Letters of Credit (LC) and other bank-related documents for secure international payments." }
         ]
       }
     },
@@ -140,15 +147,17 @@ export const products = {
       id: "web-design",
       title: "Web Designing",
       description: "Professional B2B marketplace and corporate website design.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
       serviceDetails: {
-        headline: "Premium Web Design for Export Businesses",
-        intro: "Your website is your global storefront in the digital age.",
-        benefitHeadline: "Professional Digital Presence",
-        benefitText: "We build SEO-optimized websites tailored for the export industry.",
+        headline: "Premium Web Design for the Export Industry",
+        intro: "Your website is your global digital storefront. We create high-performance B2B marketplaces and corporate websites that build trust with international buyers and showcase your products effectively.",
+        benefitHeadline: "A Digital Presence That Converts",
+        benefitText: "We combine modern design aesthetics with industry-specific functionality to ensure your website is not just a brochure, but a powerful lead-generation tool for your export business.",
         subServices: [
-          { title: "B2B Marketplace Design", desc: "Platforms to showcase your global product catalog." },
-          { title: "SEO Strategy", desc: "Rank higher for global trade keywords." }
+          { title: "B2B Marketplace Portals", desc: "Custom-built platforms with product catalogs, inquiry forms, and multi-language support." },
+          { title: "Global SEO Strategy", desc: "Optimizing your website to rank for international trade keywords and attract high-quality global leads." },
+          { title: "Responsive Mobile Design", desc: "Ensuring your website looks professional and functions perfectly on all devices, from desktops to smartphones." },
+          { title: "Corporate Branding", desc: "Developing a cohesive digital identity that reflects the reliability and professionalism of your export brand." }
         ]
       }
     }
@@ -183,7 +192,7 @@ export const products = {
       { name: "Cardamom (Green)", price: "Enquire", image: "https://images.unsplash.com/photo-1701190589641-4f8f980c4b7a?q=80&w=1074&auto=format&fit=crop", description: "Highly aromatic green cardamom pods selected for their large size and vibrant color. These 'Queens of Spices' are sourced from the Western Ghats. Ideal for flavoring desserts, beverages, and luxury gourmet dishes." },
       { name: "Turmeric", price: "Enquire", image: "https://images.unsplash.com/photo-1606951444141-e5533feb55be?w=600&auto=format&fit=crop", description: "Pure turmeric with high curcumin content, offering a vibrant yellow color and earthy flavor. Known for its extensive medicinal and culinary applications worldwide. We provide both whole finger and fine powder forms for export." },
       { name: "Cumin Seeds (Jeera)", price: "Enquire", image: "https://media.istockphoto.com/id/1482275464/photo/indian-spice-jeera-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=wyulj1D6Jco2WmGvfJsKCl0Cv5X3ZUVuK4GAdD4K-KY=", description: "High-aroma Indian cumin seeds with a warm, earthy flavor profile. These seeds are meticulously cleaned and sorted to ensure zero impurities. A fundamental spice in global cuisines, especially in Mediterranean and Asian cooking." },
-      { name: "Coriander Seeds", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Fresh and flavorful coriander seeds with a citrusy, nutty undertone. Our seeds are dried under controlled conditions to preserve their essential oils. Widely used as a base for spice blends and international culinary preparations." },
+      { name: "Coriander Seeds", price: "Enquire", image: "https://images.unsplash.com/photo-1608797178894-bf7c596932da?q=80&w=2070&auto=format&fit=crop", description: "Fresh and flavorful coriander seeds with a citrusy, nutty undertone. Our seeds are dried under controlled conditions to preserve their essential oils. Widely used as a base for spice blends and international culinary preparations." },
       { name: "Dry Red Chilli", price: "Enquire", image: chilliImg, description: "Premium Kashmiri and Byadgi red chillies known for their deep red color and mild heat. These chillies are perfect for adding rich color to food without overwhelming spice levels. Hand-selected and sun-dried for the best quality." },
       { name: "Ginger (Dry / Powder)", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "Premium dry ginger and fine powder with a sharp, pungent kick. Sourced from high-quality fresh ginger and processed under hygienic conditions. Widely used in herbal teas, spice mixes, and commercial food production." },
       { name: "Cloves (Laung)", price: "Enquire", image: "https://images.unsplash.com/photo-1547050605-2f37a5075678?auto=format&fit=crop&q=80&w=400", description: "Highly aromatic whole cloves with a sweet and spicy flavor profile. These hand-picked flower buds are rich in natural oils and medicinal properties. Perfect for flavoring meats, rice dishes, and pharmaceutical applications." },
