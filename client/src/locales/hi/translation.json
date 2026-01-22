@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "होम",
+    "products": "उत्पाद",
+    "services": "सेवाएं",
+    "about": "हमारे बारे में",
+    "inquiry": "पूछताछ",
+    "contact": "संपर्क करें"
+  },
+  "hero": {
+    "title": "SEVARAM EXIMCO AND SERVICES",
+    "subtitle": "भारत का प्रीमियम B2B निर्यात बाजार",
+    "tagline": "विश्व के खरीदारों को भारत के सर्वश्रेष्ठ उत्पादों से जोड़ता है",
+    "exploreBtn": "उत्पाद देखें",
+    "inquireBtn": "पूछताछ फॉर्म"
+  },
+  "categories": {
+    "fruits": "ताजे फल",
+    "vegetables": "सब्जियां",
+    "spices": "मसाले",
+    "pulses": "दालें",
+    "millets": "बाजरा",
+    "rice": "चावल",
+    "bamboo": "बांस और हस्तशिल्प",
+    "textiles": "वस्त्र"
+  },
+  "footer": {
+    "company": "कंपनी",
+    "contact": "हमसे संपर्क करें",
+    "services": "सेवाएं",
+    "products": "उत्पाद",
+    "newsletter": "न्यूजलेटर",
+    "subscribe": "हमारे न्यूजलेटर की सदस्यता लें",
+    "email": "अपना ईमेल दर्ज करें",
+    "subscribe_btn": "सदस्यता लें",
+    "success": "सदस्यता के लिए धन्यवाद!",
+    "rights": "सभी अधिकार सुरक्षित हैं"
+  },
+  "inquiry": {
+    "title": "निर्यात पूछताछ फॉर्म",
+    "name": "पूरा नाम",
+    "email": "ईमेल पता",
+    "phone": "फोन नंबर",
+    "company": "कंपनी का नाम",
+    "country": "देश",
+    "productInterest": "उत्पाद में रुचि",
+    "quantity": "आवश्यक मात्रा",
+    "specifications": "विशिष्टताएं/आवश्यकताएं",
+    "complianceAwareness": "निर्यात अनुपालन जागरूकता",
+    "submit": "पूछताछ जमा करें",
+    "success": "आपकी पूछताछ के लिए धन्यवाद!",
+    "successMessage": "आपकी पूछताछ प्राप्त हो गई है। हमारी टीम जल्द ही आपसे संपर्क करेगी।"
+  },
+  "services": {
+    "logistics": "लॉजिस्टिक्स और शिपिंग",
+    "documentation": "दस्तावेज सेवाएं",
+    "webDesign": "वेब डिजाइन"
+  },
+  "common": {
+    "price": "कीमत",
+    "enquire": "पूछताछ करें",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि"
+  }
+}

@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import ServiceDetail from "@/pages/ServiceDetail";
 import CategoryDetail from "@/pages/CategoryDetail";
 import Inquiry from "@/pages/Inquiry";
+import './i18n/config';
 
 function Router() {
   return (

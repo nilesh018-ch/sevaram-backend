@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,9 +74,11 @@ export default function Navbar() {
             <Button variant="ghost" size="icon" className={cn(isScrolled ? "text-foreground" : "text-white")}>
               <Search className="w-5 h-5" />
             </Button>
+            <LanguageSwitcher />
             <Button 
               className="bg-secondary hover:bg-secondary/90 text-white font-bold rounded-full px-6 flex items-center gap-2"
               onClick={() => setLocation("/inquiry")}
+              data-testid="button-inquiry"
             >
               <FileText className="w-4 h-4" />
               GET INQUIRY
