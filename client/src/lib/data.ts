@@ -9,6 +9,7 @@ import mainPulsesImg from '../assets/generated_images/pulses_main_123.png';
 import mainMilletsImg from '../assets/generated_images/millets_main_123.png';
 import mainRiceImg from '../assets/generated_images/rice_main_123.png';
 import mainTextilesImg from '../assets/generated_images/textiles_main_123.png';
+import customBananaImg from '../assets/images/banana_custom.jpg';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
@@ -140,11 +141,11 @@ export const products = {
   ],
   categoryProducts: {
     fruits: [
-      { name: "Banana (Cavendish)", price: "Enquire", image: "https://images.unsplash.com/photo-1571771894821-ad9b5886479c?auto=format&fit=crop&q=80&w=400", description: "Premium quality Cavendish bananas for export." },
+      { name: "Banana (Cavendish)", price: "Enquire", image: customBananaImg, description: "Premium quality Cavendish bananas for export." },
       { name: "Mango (Alphonso)", price: "Enquire", image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80&w=400", description: "The king of mangoes, sweet and aromatic Alphonso." },
       { name: "Mango (Kesar)", price: "Enquire", image: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&q=80&w=400", description: "Sweet and pulpy Kesar mangoes from Gujarat." },
       { name: "Pomegranate", price: "Enquire", image: "https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=400", description: "Juicy red pomegranates with high antioxidant value." },
-      { name: "Grapes (Green)", price: "Enquire", image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&q=80&w=400", description: "Fresh seedless green grapes." },
+      { name: "Grapes (Green)", price: "Enquire", image: "https://unsplash.com/photos/a-pile-of-green-grapes--aEfs2OUBtU", description: "Fresh seedless green grapes." },
       { name: "Grapes (Black)", price: "Enquire", image: "https://images.unsplash.com/photo-1601275868399-45bec4f4cd9d?auto=format&fit=crop&q=80&w=400", description: "Sweet and juicy black grapes." },
       { name: "Apple", price: "Enquire", image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6bcd6?auto=format&fit=crop&q=80&w=400", description: "Crisp and fresh export-grade apples." },
       { name: "Orange", price: "Enquire", image: "https://images.unsplash.com/photo-1582722872445-41DC50bfce30?auto=format&fit=crop&q=80&w=400", description: "Juicy oranges packed with Vitamin C." },
