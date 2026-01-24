@@ -93,7 +93,7 @@ export const products = {
       id: "cha",
       title: "CHA Services",
       description: "Smooth customs clearance with expert CHA services.",
-      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop",
+      image: "https://busyexim.com/wp-content/uploads/2024/09/18054.jpg",
       serviceDetails: {
         headline: "Expert Customs House Agent (CHA) Services",
         intro: "In the complex world of international trade, navigating customs regulations is critical. Our expert CHA services ensure your cargo moves across borders without delay or compliance issues.",
@@ -111,7 +111,7 @@ export const products = {
       id: "logistics",
       title: "Logistics",
       description: "Efficient and reliable logistics, delivering your goods on time.",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+      image: "https://busyexim.com/wp-content/uploads/2024/09/16615.jpg",
       serviceDetails: {
         headline: "End-to-End Global Logistics Solutions",
         intro: "Reliable logistics is the backbone of successful international trade. We offer comprehensive shipping solutions tailored to your specific cargo needs, ensuring timely and safe delivery anywhere in the world.",
