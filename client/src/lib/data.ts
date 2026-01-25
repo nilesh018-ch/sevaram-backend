@@ -28,6 +28,7 @@ import potatoesImg from '../assets/images/potatoes.jpg';
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
 import whitePeasImg from '../assets/images/white_peas.png';
+import ir64RawRiceImg from '../assets/images/ir64_raw_rice.png';
 
 export const products = {
   categories: [
