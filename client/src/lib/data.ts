@@ -29,12 +29,16 @@ import potatoesImg from '../assets/images/potatoes.jpg';
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
 import whitePeasImg from '../assets/images/white_peas.png';
 import ir64RawRiceImg from '../assets/images/ir64_raw_rice.png';
-import bambooToothbrushImg from '../assets/images/bamboo_toothbrush.jpg';
-import bambooChairImg from '../assets/images/bamboo_chair.jpg';
-import bambooStrawsImg from '../assets/images/bamboo_straws.jpg';
-import bambooLampshadeImg from '../assets/images/bamboo_lampshade.jpg';
-import coconutBowlImg from '../assets/images/coconut_bowl.jpg';
-import juteHangingImg from '../assets/images/jute_hanging.jpg';
+import bambooFruitBasketImg from '../assets/images/bamboo_fruit_basket.jpg';
+import bambooStorageBasketImg from '../assets/images/bamboo_storage_basket.jpg';
+import bambooLampShadeImg from '../assets/images/bamboo_lamp_shade.jpg';
+import bambooFlowerVaseImg from '../assets/images/bamboo_flower_vase.jpg';
+import bambooTeaTrayImg from '../assets/images/bamboo_tea_tray.jpg';
+import bambooCutleryHolderImg from '../assets/images/bamboo_cutlery_holder.jpg';
+import bambooPenStandImg from '../assets/images/bamboo_pen_stand.jpg';
+import bambooBreadBasketImg from '../assets/images/bamboo_bread_basket.jpg';
+import bambooWallHangingImg from '../assets/images/bamboo_wall_hanging.jpg';
+import bambooGiftBoxImg from '../assets/images/bamboo_gift_box.jpg';
 
 export const products = {
   categories: [
@@ -236,8 +240,16 @@ export const products = {
       { name: "Black Rice", price: "Enquire", image: "https://plus.unsplash.com/premium_photo-1726877060096-882c2ac6d13c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmxhY2slMjBSaWNlfGVufDB8fDB8fHww", description: "Nutritious premium black rice, also known as 'Forbidden Rice,' prized for its high anthocyanin content and antioxidant properties. Offers a slightly nutty flavor and a striking appearance when served. A gourmet choice for health-conscious consumers and fine dining." }
     ],
     bamboo: [
-      { name: "Bamboo Flower Vases", price: "Enquire", image: "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=400", description: "Elegant bamboo flower vases handcrafted by skilled artisans to add a touch of natural beauty to any interior. Sustainable and eco-friendly, these vases are both durable and aesthetically pleasing. Perfect for modern home décor and eco-conscious gift markets.", subCategory: "🏺 Home Décor Items" },
-      { name: "Bamboo Storage Bins", price: "Enquire", image: "https://images.unsplash.com/photo-1519643225200-94e79e383724?auto=format&fit=crop&q=80&w=400", description: "Sustainable storage solutions made from premium bamboo fibers. These storage bins are lightweight, sturdy, and perfect for organizing household or office items. A stylish and environmentally responsible alternative to plastic storage containers.", subCategory: "🧺 Storage & Utility Products" }
+      { name: "Bamboo Fruit Basket", price: "Enquire", image: bambooFruitBasketImg, description: "Handcrafted bamboo fruit basket designed for daily table use and retail display. The open-weave design allows proper air circulation to keep fruits fresh during storage and transit. Ideal for eco-friendly home retailers and hospitality gifting programs.", subCategory: "🏺 Home Décor & Lifestyle" },
+      { name: "Bamboo Storage Basket", price: "Enquire", image: bambooStorageBasketImg, description: "Multi-purpose bamboo storage basket suitable for wardrobes, kitchen shelves, and office spaces. Woven from treated bamboo strips for strength and long-term durability. A sustainable alternative to plastic organizers for export homeware collections.", subCategory: "🧺 Storage & Utility" },
+      { name: "Bamboo Lamp Shade", price: "Enquire", image: bambooLampShadeImg, description: "Artisanal bamboo lamp shade that creates a warm, diffused lighting effect. Each piece is hand-woven to meet international safety and finishing standards. Perfect for hotels, cafés, and interior décor brands focused on natural materials.", subCategory: "💡 Lighting & Decor" },
+      { name: "Bamboo Flower Vase", price: "Enquire", image: bambooFlowerVaseImg, description: "Elegant vertical bamboo flower vase with a smooth, polished finish. Designed to hold both fresh and dried flower arrangements for modern interiors. Popular in export markets looking for lightweight, shatter-free alternatives to glass.", subCategory: "🏺 Home Décor & Lifestyle" },
+      { name: "Bamboo Tea Tray", price: "Enquire", image: bambooTeaTrayImg, description: "Premium bamboo tea tray with raised edges and sturdy handles for safe serving. Moisture-resistant finish makes it suitable for daily hotel and restaurant use. A preferred choice for eco-conscious HORECA and gifting suppliers.", subCategory: "🍵 Kitchen & Serving" },
+      { name: "Bamboo Cutlery Holder", price: "Enquire", image: bambooCutleryHolderImg, description: "Neatly segmented bamboo cutlery holder for spoons, forks, and knives. Compact footprint makes it ideal for buffet counters, cafés, and modern kitchens. Export-ready with smooth edges, uniform finishing, and secure packaging.", subCategory: "🍴 Kitchen & Serving" },
+      { name: "Bamboo Pen Stand", price: "Enquire", image: bambooPenStandImg, description: "Minimalist bamboo pen stand suitable for corporate desks and workspace branding. Manufactured with precise finishing to support custom laser engraving and logos. Widely used as a sustainable corporate giveaway in international markets.", subCategory: "🖊️ Office & Corporate Gifts" },
+      { name: "Bamboo Bread Basket", price: "Enquire", image: bambooBreadBasketImg, description: "Open-top bamboo bread basket ideal for bakery counters, cafés, and breakfast buffets. Lightweight yet sturdy construction ensures easy handling and stacking for transport. Designed to meet hygiene and presentation requirements for export hospitality clients.", subCategory: "🍞 Bakery & Display" },
+      { name: "Bamboo Wall Hanging", price: "Enquire", image: bambooWallHangingImg, description: "Decorative bamboo wall hanging crafted with intricate weaving patterns. Adds a natural, artisanal touch to living rooms, lobbies, and boutique stores. Suitable for flat-pack export packaging and bulk décor orders.", subCategory: "🎋 Wall & Art Décor" },
+      { name: "Bamboo Gift Box", price: "Enquire", image: bambooGiftBoxImg, description: "Premium bamboo gift box designed for festive hampers, dry fruits, and luxury packaging. Customizable in size, lining, and branding to suit international gifting requirements. Ideal for gourmet brands and corporate gift suppliers seeking eco-friendly packaging.", subCategory: "🎁 Gifting & Hampers" }
     ],
     textiles: [
       { name: "Pure Silk Saree", price: "Enquire", image: "https://media.istockphoto.com/id/2237077809/photo/handcrafted-paithani-sarees-featuring-traditional-motifs-like-peacocks-and-lotus-made-from.jpg?s=2048x2048&w=is&k=20&c=9lzlVdP2suHoVIySHG85QQFsihx7eSz8P7y1qR5Qd8s=", description: "Hand-loomed Banarasi silk saree featuring exquisite patterns and a luxurious texture. These sarees represent the pinnacle of Indian textile craftsmanship and elegance. Perfect for high-end fashion boutiques and traditional wedding wear collections worldwide." },
