@@ -27,6 +27,7 @@ import potatoesImg from '../assets/images/potatoes.jpg';
 
 // Updated correct filenames from the environment
 import foodVegImg from '@assets/stock_images/fresh_green_vegetabl_68153461.jpg';
+import whitePeasImg from '../assets/images/white_peas.png';
 import bambooToothbrushImg from '../assets/images/bamboo_toothbrush.jpg';
 import bambooChairImg from '../assets/images/bamboo_chair.jpg';
 import bambooStrawsImg from '../assets/images/bamboo_straws.jpg';
