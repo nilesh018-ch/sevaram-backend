@@ -39,6 +39,7 @@ import bambooPenStandImg from '../assets/images/bamboo_pen_stand.jpg';
 import bambooBreadBasketImg from '../assets/images/bamboo_bread_basket.jpg';
 import bambooWallHangingImg from '../assets/images/bamboo_wall_hanging.jpg';
 import bambooGiftBoxImg from '../assets/images/bamboo_gift_box.jpg';
+import bambooChairImg from '../assets/images/bamboo_chair.jpg';
 import bambooCenterpieceImg from '../assets/images/bamboo_centerpiece.jpg';
 import bambooLaundryBasketImg from '../assets/images/bamboo_laundry_basket.jpg';
 import bambooGrainContainerImg from '../assets/images/bamboo_grain_container.jpg';
