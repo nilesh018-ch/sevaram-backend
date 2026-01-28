@@ -7,6 +7,8 @@ import * as z from "zod";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { useStore } from "@/context/StoreContext"; // Import useStore
+
 import {
   Form,
   FormControl,
@@ -42,6 +44,7 @@ type InquiryFormValues = z.infer<typeof inquirySchema>;
 export default function Inquiry() {
   const [, setLocation] = useLocation();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { addInquiry } = useStore(); // Get addInquiry from store
 
   const form = useForm<InquiryFormValues>({
     resolver: zodResolver(inquirySchema),
@@ -64,8 +67,26 @@ export default function Inquiry() {
   });
 
   function onSubmit(data: InquiryFormValues) {
-    console.log("Inquiry Data:", data);
-    // Simulating success in mockup mode as backend graduation was declined
+    // Construct the message string from various fields
+    const fullMessage = `
+Product: ${data.productName}
+Quantity: ${data.quantity}
+Target Price: ${data.targetPrice}
+Payment Terms: ${data.paymentTerms}
+Destination: ${data.country}
+Lab Test: ${data.labTest}
+Certificates: ${data.certificate}
+Additional: ${data.additionalRequirements || "None"}
+    `.trim();
+
+    // Add inquiry to the centralized store
+    addInquiry({
+      name: data.fullName,
+      email: data.email,
+      company: data.brand || "Not specified",
+      message: fullMessage
+    });
+
     setIsSubmitted(true);
   }
 
