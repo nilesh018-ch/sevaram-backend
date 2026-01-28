@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRoute, useLocation } from "wouter";
-import { products } from "@/lib/data";
+import { useStore } from "@/context/StoreContext"; // Changed import
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,9 +11,12 @@ export default function CategoryDetail() {
   const [, params] = useRoute("/category/:id");
   const [, setLocation] = useLocation();
   const catId = params?.id;
+  
+  // Use data from StoreContext instead of static import
+  const { categories, categoryProducts } = useStore();
 
-  const category = products.categories.find((c) => c.id === catId);
-  const catProducts = products.categoryProducts[catId as keyof typeof products.categoryProducts] || [];
+  const category = categories.find((c) => c.id === catId);
+  const catProducts = categoryProducts[catId as string] || [];
 
   useEffect(() => {
     window.scrollTo(0, 0);

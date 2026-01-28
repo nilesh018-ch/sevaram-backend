@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { products } from "@/lib/data";
+import { useStore } from "@/context/StoreContext";
 import { Button } from "@/components/ui/button";
 import { Info, Eye } from "lucide-react";
 import { useLocation } from "wouter";
@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 export default function ShopByCategory() {
   const [, setLocation] = useLocation();
+  const { categories, categoryProducts } = useStore();
 
   return (
     <section id="products" className="py-20 bg-white">
@@ -21,7 +22,7 @@ export default function ShopByCategory() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
-          {products.categories.map((cat, idx) => (
+          {categories.map((cat, idx) => (
             <motion.div 
               key={cat.id} 
               initial={{ opacity: 0, scale: 0.9 }}
@@ -52,7 +53,7 @@ export default function ShopByCategory() {
         </div>
 
         {/* Dynamic Product Sections - Same as Busyexim Home Page */}
-        {products.categories.map((cat) => (
+        {categories.map((cat) => (
           <div key={`section-${cat.id}`} className="mt-24 border-t pt-16">
             <div className="flex items-center justify-between mb-12">
               <div>
@@ -63,7 +64,7 @@ export default function ShopByCategory() {
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {(products.categoryProducts[cat.id as keyof typeof products.categoryProducts] || []).slice(0, 4).map((item, idx) => (
+              {(categoryProducts[cat.id] || []).slice(0, 4).map((item, idx) => (
                 <motion.div 
                   key={`${cat.id}-${idx}`} 
                   initial={{ opacity: 0, y: 20 }}
