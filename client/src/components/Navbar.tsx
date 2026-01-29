@@ -31,10 +31,46 @@ export default function Navbar() {
             <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> info@sevarameximserve.com</span>
           </div>
           <div className="flex items-center gap-6">
-            <Facebook className="w-3 h-3 hover:text-white cursor-pointer" />
-            <Instagram className="w-3 h-3 hover:text-white cursor-pointer" />
-            <Twitter className="w-3 h-3 hover:text-white cursor-pointer" />
-            <Linkedin className="w-3 h-3 hover:text-white cursor-pointer" />
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+              data-testid="link-facebook"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-3 h-3 cursor-pointer" />
+            </a>
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+              data-testid="link-instagram"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-3 h-3 cursor-pointer" />
+            </a>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+              data-testid="link-twitter"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-3 h-3 cursor-pointer" />
+            </a>
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white"
+              data-testid="link-linkedin"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-3 h-3 cursor-pointer" />
+            </a>
           </div>
         </div>
       </div>

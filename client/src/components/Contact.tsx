@@ -96,11 +96,46 @@ export default function Contact() {
             <div className="pt-8 border-t border-border">
               <h4 className="font-bold text-foreground mb-4">Follow Us</h4>
               <div className="flex gap-4">
-                {[Facebook, Instagram, Linkedin, Twitter].map((Icon, idx) => (
-                  <a key={idx} href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors">
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <a
+                  href="https://facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
+                  data-testid="link-facebook"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://instagram.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
+                  data-testid="link-instagram"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
+                  data-testid="link-linkedin"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-colors"
+                  data-testid="link-twitter"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>
