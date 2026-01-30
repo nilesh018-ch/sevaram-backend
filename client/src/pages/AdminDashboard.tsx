@@ -286,6 +286,7 @@ export default function AdminDashboard() {
                 <Table>
                   <TableHeader>
                     <TableRow>
+                      <TableHead>Type</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead>Date</TableHead>
                       <TableHead>Name / Company</TableHead>
@@ -297,6 +298,11 @@ export default function AdminDashboard() {
                     {inquiries.map((inq) => (
                       <TableRow key={inq.id}>
                         <TableCell>
+                          <Badge variant={inq.type === 'inquiry' ? 'default' : 'outline'}>
+                            {inq.type === 'inquiry' ? 'Inquiry' : 'Message'}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
                           <Badge variant={inq.status === 'accepted' ? 'default' : 'secondary'}>
                             {inq.status === 'accepted' ? 'Accepted' : 'Pending'}
                           </Badge>
@@ -306,6 +312,7 @@ export default function AdminDashboard() {
                           <div className="font-medium">{inq.name}</div>
                           <div className="text-xs text-slate-500">{inq.company}</div>
                           <div className="text-xs text-blue-600">{inq.email}</div>
+                          {inq.phone ? <div className="text-xs text-slate-500">{inq.phone}</div> : null}
                         </TableCell>
                         <TableCell className="max-w-md truncate" title={inq.message}>
                           {inq.message}

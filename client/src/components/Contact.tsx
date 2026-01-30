@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useStore } from "@/context/StoreContext";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -17,6 +18,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const { addMessage } = useStore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,7 +30,14 @@ export default function Contact() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    addMessage({
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      company: "Contact Form",
+      message: values.message,
+    });
+
     toast({
       title: "Message Sent!",
       description: "We have received your enquiry and will get back to you shortly.",

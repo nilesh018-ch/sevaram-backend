@@ -19,8 +19,10 @@ interface Category {
 
 interface Inquiry {
   id: number;
+  type: 'inquiry' | 'message';
   name: string;
   email: string;
+  phone?: string;
   company: string;
   message: string;
   date: string;
@@ -38,7 +40,8 @@ interface StoreContextType {
   removeProduct: (categoryId: string, productName: string) => void;
   addCategory: (category: Category) => void;
   removeCategory: (categoryId: string) => void;
-  addInquiry: (inquiry: Omit<Inquiry, 'id' | 'date' | 'status'>) => void;
+  addInquiry: (inquiry: Omit<Inquiry, 'id' | 'date' | 'status' | 'type'>) => void;
+  addMessage: (message: Omit<Inquiry, 'id' | 'date' | 'status' | 'type'>) => void;
   acceptInquiry: (id: number) => void;
 }
 
@@ -51,6 +54,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [inquiries, setInquiries] = useState<Inquiry[]>([
     {
       id: 1,
+      type: 'inquiry',
       name: "John Doe",
       email: "john@globaltrade.com",
       company: "Global Trade LLC",
@@ -60,10 +64,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     },
     {
       id: 2,
+      type: 'message',
       name: "Sarah Smith",
       email: "sarah@organicfoods.eu",
+      phone: "+49 170 0000000",
       company: "Organic Foods Co",
-      message: "Quote for 500kg Turmeric Powder.",
+      message: "Need a call back regarding export packaging options.",
       date: "2025-10-26",
       status: 'accepted'
     }
@@ -98,14 +104,26 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setCategoryProducts(newProducts);
   };
 
-  const addInquiry = (data: Omit<Inquiry, 'id' | 'date' | 'status'>) => {
+  const addInquiry = (data: Omit<Inquiry, 'id' | 'date' | 'status' | 'type'>) => {
     const newInquiry: Inquiry = {
       ...data,
+      type: 'inquiry',
       id: Date.now(),
       date: new Date().toISOString().split('T')[0],
       status: 'pending'
     };
     setInquiries(prev => [newInquiry, ...prev]);
+  };
+
+  const addMessage = (data: Omit<Inquiry, 'id' | 'date' | 'status' | 'type'>) => {
+    const newMessage: Inquiry = {
+      ...data,
+      type: 'message',
+      id: Date.now(),
+      date: new Date().toISOString().split('T')[0],
+      status: 'pending'
+    };
+    setInquiries(prev => [newMessage, ...prev]);
   };
 
   const acceptInquiry = (id: number) => {
@@ -127,6 +145,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       addCategory,
       removeCategory,
       addInquiry,
+      addMessage,
       acceptInquiry
     }}>
       {children}

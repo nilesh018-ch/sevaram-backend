@@ -83,6 +83,7 @@ Additional: ${data.additionalRequirements || "None"}
     addInquiry({
       name: data.fullName,
       email: data.email,
+      phone: data.mobileNo,
       company: data.brand || "Not specified",
       message: fullMessage
     });
