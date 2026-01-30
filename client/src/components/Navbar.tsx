@@ -42,7 +42,7 @@ export default function Navbar() {
               <Facebook className="w-3 h-3 cursor-pointer" />
             </a>
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/sevaramexim?igsh=MW1vbjUyOHhvY3c3aQ=="
               target="_blank"
               rel="noreferrer"
               className="hover:text-white"
