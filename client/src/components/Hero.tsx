@@ -45,12 +45,12 @@ export default function Hero() {
 
             <div className="flex items-center gap-6 pt-4">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">5k+</div>
+                <div className="text-3xl font-bold text-white">4k+</div>
                 <div className="text-sm text-white/50">Verified Suppliers</div>
               </div>
               <div className="h-10 w-px bg-white/10"></div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">50+</div>
+                <div className="text-3xl font-bold text-white">5+</div>
                 <div className="text-sm text-white/50">Countries Served</div>
               </div>
             </div>

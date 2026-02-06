@@ -1,103 +1,107 @@
-import express, { type Request, Response, NextFunction } from "express";
+// 🔴 dotenv must be first
+import dotenv from "dotenv";
+dotenv.config();
+
+import express, { Request, Response, NextFunction } from "express";
+import { createServer } from "http";
+import cors from "cors";
+import { Server as SocketIOServer } from "socket.io";
+
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
-import { createServer } from "http";
+import { db } from "./db";
 
 const app = express();
 const httpServer = createServer(app);
 
-declare module "http" {
-  interface IncomingMessage {
-    rawBody: unknown;
-  }
-}
-
+// --------------------------------------------------
+// 🔓 CORS (FRONTEND ACCESS)
+// --------------------------------------------------
 app.use(
-  express.json({
-    verify: (req, _res, buf) => {
-      req.rawBody = buf;
-    },
-  }),
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
 );
 
-app.use(express.urlencoded({ extended: false }));
+// --------------------------------------------------
+// 🔥 SOCKET.IO
+// --------------------------------------------------
+const io = new SocketIOServer(httpServer, {
+  cors: {
+    origin: "http://localhost:5173",
+  },
+});
 
-export function log(message: string, source = "express") {
-  const formattedTime = new Date().toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
+app.set("io", io);
+
+io.on("connection", (socket) => {
+  console.log("🟢 Admin connected:", socket.id);
+  socket.on("disconnect", () => {
+    console.log("🔴 Admin disconnected:", socket.id);
   });
+});
 
-  console.log(`${formattedTime} [${source}] ${message}`);
+// --------------------------------------------------
+// BODY PARSERS
+// --------------------------------------------------
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// --------------------------------------------------
+// LOGGER
+// --------------------------------------------------
+function log(message: string, source = "express") {
+  const time = new Date().toLocaleTimeString();
+  console.log(`${time} [${source}] ${message}`);
 }
 
+// --------------------------------------------------
+// REQUEST LOGGER
+// --------------------------------------------------
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
 
   res.on("finish", () => {
     const duration = Date.now() - start;
     if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      log(logLine);
+      log(`${req.method} ${path} ${res.statusCode} in ${duration}ms`);
     }
   });
 
   next();
 });
 
+// --------------------------------------------------
+// MAIN BOOTSTRAP
+// --------------------------------------------------
 (async () => {
-  await registerRoutes(httpServer, app);
+  try {
+    await db.query("SELECT 1");
+    log("Database connected successfully", "mysql");
 
-  app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
+    await registerRoutes(httpServer, app);
 
-    console.error("Internal Server Error:", err);
+    app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+      console.error("Internal Error:", err);
+      res.status(500).json({ message: "Server Error" });
+    });
 
-    if (res.headersSent) {
-      return next(err);
+    if (process.env.NODE_ENV === "production") {
+      serveStatic(app);
+    } else {
+      const { setupVite } = await import("./vite");
+      await setupVite(httpServer, app);
     }
 
-    return res.status(status).json({ message });
-  });
-
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (process.env.NODE_ENV === "production") {
-    serveStatic(app);
-  } else {
-    const { setupVite } = await import("./vite");
-    await setupVite(httpServer, app);
+    const port = Number(process.env.PORT) || 5000;
+    httpServer.listen(port, () => {
+      log(`Server running on http://localhost:${port}`);
+    });
+  } catch (err) {
+    console.error("❌ Failed to start server:", err);
+    process.exit(1);
   }
-
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    },
-  );
 })();

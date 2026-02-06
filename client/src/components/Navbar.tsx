@@ -28,7 +28,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4 flex justify-between items-center text-xs">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Phone className="w-3 h-3 text-secondary" /> +91 98765 43210</span>
-            <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> info@sevarameximserve.com</span>
+            <span className="flex items-center gap-1.5 hover:text-white cursor-pointer"><Mail className="w-3 h-3 text-secondary" /> sevarameximserve@gmail.com</span>
           </div>
           <div className="flex items-center gap-6">
             <a

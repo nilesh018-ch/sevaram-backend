@@ -30,7 +30,7 @@ export default function About() {
             <div className="absolute -top-8 -left-8 w-64 h-64 bg-primary/10 rounded-full -z-10 blur-3xl"></div>
             
             <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur p-6 rounded-xl shadow-lg max-w-xs border-l-4 border-primary">
-              <p className="font-serif text-4xl font-bold text-accent mb-1">15+</p>
+              <p className="font-serif text-4xl font-bold text-accent mb-1">3+</p>
               <p className="text-sm text-muted-foreground uppercase tracking-wide font-medium">Years of Experience in Global Trade</p>
             </div>
           </div>

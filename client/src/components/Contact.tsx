@@ -73,8 +73,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-bold text-foreground">Our Office</h4>
                   <p className="text-muted-foreground">
-                    123 Export Plaza, Spice Market Road,<br />
-                    Mumbai, Maharashtra, India - 400001
+                    Plot No 32 , Nandora, NH 53 Highway , Bhandara, Maharashtra 441906
                   </p>
                 </div>
               </div>

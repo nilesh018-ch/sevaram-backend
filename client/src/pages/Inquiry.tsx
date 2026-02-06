@@ -6,8 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useStore } from "@/context/StoreContext";
 import { Button } from "@/components/ui/button";
-import { useStore } from "@/context/StoreContext"; // Import useStore
 
 import {
   Form,
@@ -20,8 +20,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Send, CheckCircle2, Copy, ShieldCheck, ClipboardCheck, Scale, Hash, CreditCard } from "lucide-react";
+import { ArrowLeft, Send, CheckCircle2, ClipboardCheck, Scale, Hash, CreditCard } from "lucide-react";
 
+// -------------------- FORM VALIDATION SCHEMA --------------------
 const inquirySchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   mobileNo: z.string().min(10, "Valid mobile number is required"),
@@ -41,10 +42,13 @@ const inquirySchema = z.object({
 
 type InquiryFormValues = z.infer<typeof inquirySchema>;
 
+// -------------------- COMPONENT --------------------
 export default function Inquiry() {
   const [, setLocation] = useLocation();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { addInquiry } = useStore(); // Get addInquiry from store
+
+  // 🔹 Correct place for hook
+  const { addInquiry } = useStore();
 
   const form = useForm<InquiryFormValues>({
     resolver: zodResolver(inquirySchema),
@@ -66,37 +70,34 @@ export default function Inquiry() {
     },
   });
 
-  function onSubmit(data: InquiryFormValues) {
-    // Construct the message string from various fields
-    const fullMessage = `
-Product: ${data.productName}
-Quantity: ${data.quantity}
-Target Price: ${data.targetPrice}
-Payment Terms: ${data.paymentTerms}
-Destination: ${data.country}
-Lab Test: ${data.labTest}
-Certificates: ${data.certificate}
-Additional: ${data.additionalRequirements || "None"}
-    `.trim();
+  // -------------------- SUBMIT HANDLER --------------------
+  async function onSubmit(data: InquiryFormValues) {
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    // Add inquiry to the centralized store
-    addInquiry({
-      name: data.fullName,
-      email: data.email,
-      phone: data.mobileNo,
-      company: data.brand || "Not specified",
-      message: fullMessage
-    });
-
-    setIsSubmitted(true);
+      if (response.ok) {
+        const savedInquiry = await response.json();
+        addInquiry(savedInquiry); // 🔹 Live dashboard update
+        setIsSubmitted(true);
+      } else {
+        console.error("Failed to submit inquiry");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 
+  // -------------------- THANK YOU SCREEN --------------------
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-[#f8faff] flex flex-col">
         <Navbar />
         <main className="flex-1 flex items-center justify-center p-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="text-center space-y-6 max-w-md"
@@ -121,10 +122,10 @@ Additional: ${data.additionalRequirements || "None"}
     );
   }
 
+  // -------------------- INQUIRY FORM --------------------
   return (
     <div className="min-h-screen bg-[#f8faff]">
       <Navbar />
-      
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <Button 
@@ -136,10 +137,7 @@ Additional: ${data.additionalRequirements || "None"}
             Back to Home
           </Button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card className="rounded-[2.5rem] shadow-2xl border-none overflow-hidden">
               <CardHeader className="bg-[#1a2b4b] text-white p-10 text-center">
                 <CardTitle className="text-3xl lg:text-4xl font-bold text-white">Professional Export Inquiry</CardTitle>
@@ -148,219 +146,158 @@ Additional: ${data.additionalRequirements || "None"}
               <CardContent className="p-10">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+
+                    {/* CONTACT DETAILS */}
                     <div className="space-y-6">
                       <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Contact Details</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="fullName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Full Name *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="John Doe" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Email Address *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="john@example.com" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="mobileNo"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Mobile Number *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="whatsappNo"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">WhatsApp Number *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-6">
-                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Product & Export Requirements</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="productName"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Product Name *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. Basmati Rice" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="quantity"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Quantity *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. 10 Tons" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="country"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Destination Country *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. USA" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="targetPrice"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <Scale className="w-4 h-4 text-[#2a56ff]" /> Target Price (USD) *
-                              </FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. $500/Ton" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="hsnCode"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <Hash className="w-4 h-4 text-[#2a56ff]" /> HSN Code
-                              </FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. 1006.30" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="paymentTerms"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <CreditCard className="w-4 h-4 text-[#2a56ff]" /> Payment Terms *
-                              </FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. LC, TT, Advance" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-6">
-                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Compliance & Testing</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="labTest"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2">
-                                <ClipboardCheck className="w-4 h-4 text-[#2a56ff]" /> Lab Test Required? *
-                              </FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. SGS, ISO or None" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        <FormField
-                          control={form.control}
-                          name="certificate"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="font-bold text-[#1a2b4b]">Certificates Required *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="e.g. Phytosanitary, CO" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      <FormField
-                        control={form.control}
-                        name="additionalRequirements"
-                        render={({ field }) => (
+                        <FormField control={form.control} name="fullName" render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="font-bold text-[#1a2b4b]">Special Packaging or Other Instructions</FormLabel>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Full Name *</FormLabel>
                             <FormControl>
-                              <Textarea 
-                                placeholder="Any specific requirements for packaging or shipping..." 
-                                className="min-h-[120px] rounded-2xl border-blue-100 focus:ring-[#2a56ff]"
-                                {...field} 
-                              />
+                              <Input placeholder="John Doe" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
-                        )}
-                      />
+                        )}/>
+                        <FormField control={form.control} name="email" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Email Address *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="john@example.com" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="mobileNo" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Mobile Number *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="whatsappNo" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">WhatsApp Number *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="+91 98765 43210" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                      </div>
                     </div>
 
+                    {/* PRODUCT & EXPORT REQUIREMENTS */}
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Product & Export Requirements</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <FormField control={form.control} name="productName" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Product Name *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. Basmati Rice" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="quantity" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Quantity *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. 10 Tons" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="country" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Destination Country *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. USA" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="targetPrice" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2"><Scale className="w-4 h-4 text-[#2a56ff]" /> Target Price (USD) *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. $500/Ton" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="hsnCode" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2"><Hash className="w-4 h-4 text-[#2a56ff]" /> HSN Code</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. 1006.30" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="paymentTerms" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2"><CreditCard className="w-4 h-4 text-[#2a56ff]" /> Payment Terms *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. LC, TT, Advance" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                      </div>
+                    </div>
+
+                    {/* COMPLIANCE & TESTING */}
+                    <div className="space-y-6">
+                      <h3 className="text-xl font-bold text-[#2a56ff] border-b border-blue-100 pb-2">Compliance & Testing</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <FormField control={form.control} name="labTest" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b] flex items-center gap-2"><ClipboardCheck className="w-4 h-4 text-[#2a56ff]" /> Lab Test Required? *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. SGS, ISO or None" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                        <FormField control={form.control} name="certificate" render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="font-bold text-[#1a2b4b]">Certificates Required *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="e.g. Phytosanitary, CO" {...field} className="h-12 rounded-xl border-blue-100 focus:ring-[#2a56ff]" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}/>
+                      </div>
+                      <FormField control={form.control} name="additionalRequirements" render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="font-bold text-[#1a2b4b]">Special Packaging or Other Instructions</FormLabel>
+                          <FormControl>
+                            <Textarea placeholder="Any specific requirements for packaging or shipping..." className="min-h-[120px] rounded-2xl border-blue-100 focus:ring-[#2a56ff]" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}/>
+                    </div>
+
+                    {/* SUBMIT BUTTON */}
                     <div className="pt-6">
-                      <Button 
-                        type="submit" 
-                        className="w-full h-16 bg-[#2a56ff] hover:bg-blue-700 text-white font-black text-xl rounded-2xl shadow-xl shadow-blue-200 flex items-center justify-center gap-3 transition-transform hover:scale-[1.01]"
-                      >
+                      <Button type="submit" className="w-full h-16 bg-[#2a56ff] hover:bg-blue-700 text-white font-black text-xl rounded-2xl shadow-xl shadow-blue-200 flex items-center justify-center gap-3 transition-transform hover:scale-[1.01]">
                         Submit Professional Inquiry <Send className="w-6 h-6" />
                       </Button>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
                          <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-1.5 rounded-full font-medium">
-                           <ShieldCheck className="w-4 h-4" /> Secure Inquiry
+                           <ClipboardCheck className="w-4 h-4" /> Secure Inquiry
                          </div>
                          <span>* Verified Export Partner - Sevaram Eximco and Services</span>
                       </div>
                     </div>
+
                   </form>
                 </Form>
               </CardContent>
@@ -368,7 +305,6 @@ Additional: ${data.additionalRequirements || "None"}
           </motion.div>
         </div>
       </main>
-      
       <Footer />
     </div>
   );
