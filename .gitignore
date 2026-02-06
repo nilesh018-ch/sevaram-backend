@@ -9,4 +9,4 @@ tailwind.config.*
 components.json
 index.html
 node_modules/
-node_modules/
+.env
