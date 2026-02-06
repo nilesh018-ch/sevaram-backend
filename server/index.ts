@@ -15,7 +15,7 @@ const app = express();
 const httpServer = createServer(app);
 
 // --------------------------------------------------
-// 🔓 CORS (FRONTEND ACCESS)
+// 🔓 CORS
 // --------------------------------------------------
 app.use(
   cors({
@@ -84,21 +84,20 @@ app.use((req, res, next) => {
 
     await registerRoutes(httpServer, app);
 
+    // 🔴 GLOBAL ERROR HANDLER
     app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
       console.error("Internal Error:", err);
       res.status(500).json({ message: "Server Error" });
     });
 
+    // ✅ ONLY STATIC SERVE (NO VITE)
     if (process.env.NODE_ENV === "production") {
       serveStatic(app);
-    } else {
-      const { setupVite } = await import("./vite");
-      await setupVite(httpServer, app);
     }
 
     const port = Number(process.env.PORT) || 5000;
     httpServer.listen(port, () => {
-      log(`Server running on https://sevarameximserve.com:${port}`);
+      log(`Server running on port ${port}`);
     });
   } catch (err) {
     console.error("❌ Failed to start server:", err);
