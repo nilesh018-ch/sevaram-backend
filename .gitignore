@@ -1,6 +1,12 @@
-node_modules
-dist
-.DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
+# --- FRONTEND (LOCAL ONLY) ---
+client/
+src/
+public/
+dist/
+vite.config.*
+postcss.config.*
+tailwind.config.*
+components.json
+index.html
+node_modules/
+node_modules/
