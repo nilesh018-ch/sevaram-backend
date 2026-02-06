@@ -19,7 +19,7 @@ const httpServer = createServer(app);
 // --------------------------------------------------
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://sevarameximserve.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -30,7 +30,7 @@ app.use(
 // --------------------------------------------------
 const io = new SocketIOServer(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://sevarameximserve.com",
   },
 });
 
@@ -98,7 +98,7 @@ app.use((req, res, next) => {
 
     const port = Number(process.env.PORT) || 5000;
     httpServer.listen(port, () => {
-      log(`Server running on http://localhost:${port}`);
+      log(`Server running on https://sevarameximserve.com:${port}`);
     });
   } catch (err) {
     console.error("❌ Failed to start server:", err);
